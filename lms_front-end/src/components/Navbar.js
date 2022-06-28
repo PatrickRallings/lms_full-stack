@@ -1,6 +1,4 @@
-
-
-function Nav() {
+function Navbar() {
     return (
         <div id={"nav"}>
             <header className="header">
@@ -34,8 +32,26 @@ function Nav() {
                     </ul>
                 </nav>
             </header>
+            <div className="header--mobile fixed">
+                <a className="header--mobile-logo" href="https://www.carolinafintechhub.org/">
+                    <img
+                        src="https://3chxux42u1m943cnnj18o850-wpengine.netdna-ssl.com/wp-content/themes/cfh/assets/img/logo.svg"
+                        alt="Carolina Fintech Hub"/>
+                </a>
+                <div className="menu-options">
+                    <a className="search-open">
+                        <img
+                            src="https://3chxux42u1m943cnnj18o850-wpengine.netdna-ssl.com/wp-content/themes/cfh/assets/img/icon-search-pink.svg"/>
+                    </a>
+                    <a className="header--mobile-menu" href="#">
+                        <img
+                            src="https://3chxux42u1m943cnnj18o850-wpengine.netdna-ssl.com/wp-content/themes/cfh/assets/img/icon-mobile-menu.svg"
+                            alt=""/>
+                    </a>
+                </div>
+            </div>
         </div>
     );
 }
 
-export default Nav;
+export default Navbar;
