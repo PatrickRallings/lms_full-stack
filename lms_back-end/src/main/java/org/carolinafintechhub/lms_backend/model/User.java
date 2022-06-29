@@ -1,6 +1,7 @@
 package org.carolinafintechhub.lms_backend.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -17,6 +18,8 @@ public class User {
     private String email;
     @Column(name="password", nullable = false)
     private String password;
+    @OneToMany
+    private List<Course> courses;
 
     public User(){};
 
