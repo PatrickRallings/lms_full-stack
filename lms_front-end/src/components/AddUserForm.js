@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddUser() {
+function AddUserForm() {
     return (
         <div>
 
@@ -8,4 +8,4 @@ function AddUser() {
     );
 }
 
-export default AddUser;
+export default AddUserForm;

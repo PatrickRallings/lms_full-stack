@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar"
-import AddUser from "./components/AddUser";
+import AddUserForm from "./components/AddUserForm";
 
 function App() {
   return (
     <>
-      <Navbar />
-        <AddUser />
+      {/*<Navbar />*/}
+        <AddUserForm  />
     </>
   );
 }
