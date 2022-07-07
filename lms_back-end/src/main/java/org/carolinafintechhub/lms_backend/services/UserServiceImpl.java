@@ -1,8 +1,9 @@
 package org.carolinafintechhub.lms_backend.services;
 
 import org.carolinafintechhub.lms_backend.entity.UserEntity;
+import org.carolinafintechhub.lms_backend.model.UserCreationModel;
 import org.carolinafintechhub.lms_backend.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,20 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserCreationModel createUser(UserCreationModel userCreationModel){
+        UserEntity userEntity = new UserEntity();
+
+        BeanUtils.copyProperties(userCreationModel, userEntity);
+        userRepository.save(userEntity);
+        return userCreationModel;
+    }
 
     @Override
     public UserEntity getUserById(Long id) {

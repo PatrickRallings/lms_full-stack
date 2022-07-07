@@ -10,17 +10,17 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name="first_name", nullable = false)
+    @Column(name="first_name")
     private String firstName;
-    @Column(name="last_name", nullable = false)
+    @Column(name="last_name")
     private String lastName;
-    @Column(name="username", nullable = false)
+    @Column(name="username")
     private String username;
-    @Column(name="email", nullable = false)
+    @Column(name="email")
     private String email;
-    @Column(name="password", nullable = false)
+    @Column(name="password")
     private String password;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
     private Set<EnrollmentEntity> enrollments = new HashSet<>();
