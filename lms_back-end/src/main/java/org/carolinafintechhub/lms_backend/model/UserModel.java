@@ -1,10 +1,10 @@
-package org.carolinafintechhub.lms_backend.dto;
+package org.carolinafintechhub.lms_backend.model;
 
-import org.carolinafintechhub.lms_backend.model.Course;
+import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 
 import java.util.List;
 
-public class UserDto {
+public class UserModel {
 
     private Long id;
     private String firstName;
@@ -12,11 +12,11 @@ public class UserDto {
     private String email;
     private String password;
     private String confirmPassword;
-    private List<Course> courses;
+    private List<CourseEntity> courses;
 
-    public UserDto(){};
+    public UserModel(){};
 
-    public UserDto(String firstName, String lastName, String email, String password, String confirmPassword){
+    public UserModel(String firstName, String lastName, String email, String password, String confirmPassword){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

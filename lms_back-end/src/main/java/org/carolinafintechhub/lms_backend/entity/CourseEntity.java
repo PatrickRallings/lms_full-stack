@@ -1,10 +1,10 @@
-package org.carolinafintechhub.lms_backend.model;
+package org.carolinafintechhub.lms_backend.entity;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Course {
+public class CourseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,11 +13,11 @@ public class Course {
     private String title;
     private String body;
     @ManyToMany
-    private List<User> users;
+    private List<UserEntity> users;
 
-    public Course(){};
+    public CourseEntity(){};
 
-    public Course(String title, String body, List<User> users){
+    public CourseEntity(String title, String body, List<UserEntity> users){
         this.title = title;
         this.body = body;
         this.users = users;
@@ -47,11 +47,11 @@ public class Course {
         this.body = body;
     }
 
-    public List<User> getUsers() {
+    public List<UserEntity> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<UserEntity> users) {
         this.users = users;
     }
 

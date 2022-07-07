@@ -1,10 +1,10 @@
-package org.carolinafintechhub.lms_backend.model;
+package org.carolinafintechhub.lms_backend.entity;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ public class User {
     @Column(name="password", nullable = false)
     private String password;
     @OneToMany
-    private List<Course> courses;
+    private List<CourseEntity> courses;
 
-    public User(){};
+    public UserEntity(){};
 
-    public User(String firstName, String lastName, String email, String password){
+    public UserEntity(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

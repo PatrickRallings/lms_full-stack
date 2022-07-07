@@ -1,6 +1,6 @@
 package org.carolinafintechhub.lms_backend.services;
 
-import org.carolinafintechhub.lms_backend.model.User;
+import org.carolinafintechhub.lms_backend.entity.UserEntity;
 import org.carolinafintechhub.lms_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
 
     @Override
-    public User getUserById(Long id) {
-        Optional<User> optional = this.userRepository.findById(id);
+    public UserEntity getUserById(Long id) {
+        Optional<UserEntity> optional = this.userRepository.findById(id);
         if (optional.isPresent()) {
             return optional.get();
         } else {
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return this.userRepository.findAll();
     }
 
