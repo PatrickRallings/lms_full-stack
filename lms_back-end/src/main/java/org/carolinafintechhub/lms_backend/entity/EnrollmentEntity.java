@@ -21,12 +21,17 @@ public class EnrollmentEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private CourseEntity courseEntity;
 
-    public EnrollmentEntity(){};
+    public EnrollmentEntity() {
+    }
 
-    public EnrollmentEntity(UserEntity userEntity, CourseEntity courseEntity){
+    ;
+
+    public EnrollmentEntity(UserEntity userEntity, CourseEntity courseEntity) {
         this.userEntity = userEntity;
         this.courseEntity = courseEntity;
-    };
+    }
+
+    ;
 
 
     public Long getId() {

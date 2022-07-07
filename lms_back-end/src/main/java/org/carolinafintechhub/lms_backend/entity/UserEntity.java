@@ -5,29 +5,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
-    @Column(name="username")
+    @Column(name = "username")
     private String username;
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
     private Set<EnrollmentEntity> enrollments = new HashSet<>();
 
-    public UserEntity(){};
+    public UserEntity() {
+    }
 
-    public UserEntity(String firstName, String lastName, String username, String email, String password){
+    ;
+
+    public UserEntity(String firstName, String lastName, String username, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

@@ -12,12 +12,12 @@ public class EnrollmentCreationController {
 
     EnrollmentService enrollmentService;
 
-    public EnrollmentCreationController (EnrollmentService enrollmentService) {
+    public EnrollmentCreationController(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
 
     @RequestMapping("/enrollments")
-    public EnrollmentCreationModel createEnrollment (@RequestBody EnrollmentCreationModel enrollmentCreationModel){
+    public EnrollmentCreationModel createEnrollment(@RequestBody EnrollmentCreationModel enrollmentCreationModel) {
         return enrollmentService.createEnrollment(enrollmentCreationModel);
     }
 

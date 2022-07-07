@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="courses")
+@Table(name = "courses")
 public class CourseEntity {
 
     @Id
@@ -22,9 +22,12 @@ public class CourseEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
-    public CourseEntity(){};
+    public CourseEntity() {
+    }
 
-    public CourseEntity(String title, String body){
+    ;
+
+    public CourseEntity(String title, String body) {
         this.title = title;
         this.body = body;
     }

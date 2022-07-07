@@ -12,12 +12,12 @@ public class CourseCreationController {
 
     CourseService courseService;
 
-    public CourseCreationController (CourseService courseService){
+    public CourseCreationController(CourseService courseService) {
         this.courseService = courseService;
     }
 
     @RequestMapping("/courses")
-    public CourseCreationModel createCourse (@RequestBody CourseCreationModel courseCreationModel) {
+    public CourseCreationModel createCourse(@RequestBody CourseCreationModel courseCreationModel) {
         return courseService.createCourse(courseCreationModel);
     }
 }

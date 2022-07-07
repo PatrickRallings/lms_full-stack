@@ -8,13 +8,13 @@ import org.carolinafintechhub.lms_backend.repository.EnrollmentRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EnrollmentServiceImpl implements EnrollmentService{
+public class EnrollmentServiceImpl implements EnrollmentService {
 
     EnrollmentRepository enrollmentRepository;
     CourseService courseService;
     UserService userService;
 
-    public EnrollmentServiceImpl (EnrollmentRepository enrollmentRepository, CourseService courseService, UserService userService){
+    public EnrollmentServiceImpl(EnrollmentRepository enrollmentRepository, CourseService courseService, UserService userService) {
         this.enrollmentRepository = enrollmentRepository;
         this.courseService = courseService;
         this.userService = userService;
