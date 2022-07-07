@@ -1,9 +1,11 @@
 package org.carolinafintechhub.lms_backend.entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name="users")
 public class UserEntity {
 
     @Id
@@ -14,18 +16,21 @@ public class UserEntity {
     private String firstName;
     @Column(name="last_name", nullable = false)
     private String lastName;
+    @Column(name="username", nullable = false)
+    private String username;
     @Column(name="email", nullable = false)
     private String email;
     @Column(name="password", nullable = false)
     private String password;
-    @OneToMany
-    private List<CourseEntity> courses;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
+    private Set<EnrollmentEntity> enrollments = new HashSet<>();
 
     public UserEntity(){};
 
-    public UserEntity(String firstName, String lastName, String email, String password){
+    public UserEntity(String firstName, String lastName, String username, String email, String password){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -70,14 +75,31 @@ public class UserEntity {
         this.password = password;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Set<EnrollmentEntity> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(Set<EnrollmentEntity> enrollments) {
+        this.enrollments = enrollments;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "UserEntity{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + "**********" + '\'' +
+                ", password='" + "********" + '\'' +
                 '}';
     }
 }

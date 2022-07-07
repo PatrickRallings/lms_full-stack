@@ -1,9 +1,11 @@
 package org.carolinafintechhub.lms_backend.entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name="courses")
 public class CourseEntity {
 
     @Id
@@ -12,15 +14,14 @@ public class CourseEntity {
     private Long id;
     private String title;
     private String body;
-    @ManyToMany
-    private List<UserEntity> users;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
+    private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
     public CourseEntity(){};
 
-    public CourseEntity(String title, String body, List<UserEntity> users){
+    public CourseEntity(String title, String body){
         this.title = title;
         this.body = body;
-        this.users = users;
     }
 
     public Long getId() {
@@ -47,12 +48,12 @@ public class CourseEntity {
         this.body = body;
     }
 
-    public List<UserEntity> getUsers() {
-        return users;
+    public Set<EnrollmentEntity> getEnrollmentEntities() {
+        return enrollmentEntities;
     }
 
-    public void setUsers(List<UserEntity> users) {
-        this.users = users;
+    public void setEnrollmentEntities(Set<EnrollmentEntity> enrollmentEntities) {
+        this.enrollmentEntities = enrollmentEntities;
     }
 
     @Override
