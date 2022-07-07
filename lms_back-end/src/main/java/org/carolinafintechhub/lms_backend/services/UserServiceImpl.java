@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService{
 
         BeanUtils.copyProperties(userCreationModel, userEntity);
         userRepository.save(userEntity);
+
         return userCreationModel;
     }
 

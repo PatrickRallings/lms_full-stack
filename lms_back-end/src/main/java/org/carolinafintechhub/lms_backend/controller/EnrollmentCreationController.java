@@ -2,7 +2,6 @@ package org.carolinafintechhub.lms_backend.controller;
 
 import org.carolinafintechhub.lms_backend.model.EnrollmentCreationModel;
 import org.carolinafintechhub.lms_backend.services.EnrollmentService;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,7 @@ public class EnrollmentCreationController {
         this.enrollmentService = enrollmentService;
     }
 
-    @PostMapping("/enrollments")
+    @RequestMapping("/enrollments")
     public EnrollmentCreationModel createEnrollment (@RequestBody EnrollmentCreationModel enrollmentCreationModel){
         return enrollmentService.createEnrollment(enrollmentCreationModel);
     }

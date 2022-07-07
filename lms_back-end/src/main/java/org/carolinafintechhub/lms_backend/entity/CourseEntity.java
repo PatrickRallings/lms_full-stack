@@ -12,8 +12,13 @@ public class CourseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "body")
     private String body;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 

@@ -6,14 +6,18 @@ import java.util.Date;
 @Entity
 @Table(name = "enrollments")
 public class EnrollmentEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
     @Column(name = "enrollment_date", nullable = false)
     private Date enrollmentDate = new Date();
+
     @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity userEntity;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private CourseEntity courseEntity;
 
