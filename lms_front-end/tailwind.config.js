@@ -6,7 +6,10 @@ module.exports = {
     './components/**/*.{html,js}',
   ],
   theme: {
-    extend: {},
+    colors: {
+      'cfh-dark-red': '#3f0026',
+      'cfh-light-orange': '#ff7b31'
+    },
   },
   plugins: [],
 }
