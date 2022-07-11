@@ -2,13 +2,11 @@ package org.carolinafintechhub.lms_backend.controller;
 
 import org.carolinafintechhub.lms_backend.model.UserCreationModel;
 import org.carolinafintechhub.lms_backend.services.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin (origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/create_user/v1")
+@RequestMapping("/api/v1/user")
 public class UserCreationController {
 
     private final UserService userService;
@@ -17,7 +15,7 @@ public class UserCreationController {
         this.userService = userService;
     }
 
-    @PostMapping("/users")
+    @RequestMapping("/create")
     public UserCreationModel createUser(@RequestBody UserCreationModel userCreationModel) {
         return userService.createUser(userCreationModel);
     }
