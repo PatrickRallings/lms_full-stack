@@ -22,12 +22,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserCreationModel createUser(UserCreationModel userCreationModel) {
-        UserEntity userEntity = new UserEntity();
 
-        BeanUtils.copyProperties(userCreationModel, userEntity);
-        userRepository.save(userEntity);
+        if (!getUserByEmail(userCreationModel)) {
+            UserEntity userEntity = new UserEntity();
+            BeanUtils.copyProperties(userCreationModel, userEntity);
+            userRepository.save(userEntity);
+            return userCreationModel;
+        } else {
+            throw new SecurityException("A user with this email already exists.");
+        }
+    }
 
-        return userCreationModel;
+    public boolean getUserByEmail(UserCreationModel userCreationModel){
+        return userRepository.getUserByEmail(userCreationModel.getEmail()) != null;
     }
 
     @Override
