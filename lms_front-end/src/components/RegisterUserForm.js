@@ -112,7 +112,7 @@ function RegisterUserForm() {
                                 <div className="w-full px-3 mb-5">
                                     <button
                                         onClick={saveUser}
-                                        className="block w-full max-w-xs mx-auto bg-cfh-light-orange hover:bg-cfh-dark-red focus:bg-indigo-700 text-indigo-50 rounded-lg px-3 py-3 font-semibold">REGISTER
+                                        className="block w-full border-4 max-w-xs mx-auto bg-cfh-light-orange hover:border-cfh-light-orange focus:bg-indigo-700 text-indigo-50 rounded-lg px-3 py-3 font-semibold">REGISTER
                                         NOW
                                     </button>
                                 </div>

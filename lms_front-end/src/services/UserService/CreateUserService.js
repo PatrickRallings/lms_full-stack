@@ -13,7 +13,12 @@ class CreateUserService {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                if (data.error != null) {
+                    console.log("Error: ",data)
+                    alert(data.error)
+                } else {
+                    console.log('Success:', data);
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
