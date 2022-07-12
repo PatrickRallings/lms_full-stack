@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import UserService from "../services/UserService";
+import CreateUserService from "../services/UserService/CreateUserService";
 
-function AddUserForm() {
+function RegisterUserForm() {
 
     const [user, setUser] = useState({
             firstName: "firstNamePlaceholder",
             lastName: "lastNamePlaceholder",
-            username: "usernamePlaceholder",
             email: "emailPlaceholder",
             password: "passwordPlaceholder"
         }
@@ -18,7 +17,7 @@ function AddUserForm() {
 
     const saveUser = () => {
         console.log("saveUser function initiated - DevTest")
-        UserService.saveUser(user)
+        CreateUserService.createUser(user)
     }
 
     return (
@@ -126,4 +125,4 @@ function AddUserForm() {
     );
 }
 
-export default AddUserForm;
+export default RegisterUserForm;

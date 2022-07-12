@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar"
-import AddUserForm from "./components/AddUserForm";
+import RegisterUserForm from "./components/RegisterUserForm";
 
 function App() {
   return (
     <>
       {/*<Navbar />*/}
-        <AddUserForm  />
+        <RegisterUserForm  />
     </>
   );
 }
