@@ -71,7 +71,7 @@ public class EnrollmentEntity {
         return "EnrollmentEntity{" +
                 "id=" + id +
                 ", enrollmentDate=" + enrollmentDate +
-                ", username=" + userEntity.getUsername() +
+                ", email=" + userEntity.getEmail() +
                 ", course=" + courseEntity.getTitle() +
                 '}';
     }

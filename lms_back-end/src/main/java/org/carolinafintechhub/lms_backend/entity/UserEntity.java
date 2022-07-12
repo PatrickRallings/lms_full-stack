@@ -16,8 +16,6 @@ public class UserEntity {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "username")
-    private String username;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
@@ -30,10 +28,9 @@ public class UserEntity {
 
     ;
 
-    public UserEntity(String firstName, String lastName, String username, String email, String password) {
+    public UserEntity(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -78,14 +75,6 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public Set<EnrollmentEntity> getEnrollments() {
         return enrollments;
     }
@@ -100,7 +89,6 @@ public class UserEntity {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + "********" + '\'' +
                 '}';

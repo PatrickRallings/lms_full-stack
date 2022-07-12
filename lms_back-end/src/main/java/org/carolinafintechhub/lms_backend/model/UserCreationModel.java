@@ -10,9 +10,6 @@ public class UserCreationModel {
     @JsonProperty("lastName")
     private String lastName;
 
-    @JsonProperty("username")
-    private String username;
-
     @JsonProperty("email")
     private String email;
 
@@ -22,12 +19,10 @@ public class UserCreationModel {
     public UserCreationModel() {
     }
 
-    ;
 
-    public UserCreationModel(String firstName, String lastName, String username, String email, String password) {
+    public UserCreationModel(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -46,14 +41,6 @@ public class UserCreationModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
@@ -77,7 +64,6 @@ public class UserCreationModel {
         return "UserCreationModel{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + "**********" + '\'' +
                 '}';

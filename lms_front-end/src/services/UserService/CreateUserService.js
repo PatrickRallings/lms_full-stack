@@ -1,8 +1,8 @@
 const CREATE_USER_URL = "http://localhost:8080/api/v1/user/create";
 
-class UserService {
+class CreateUserService {
 
-    saveUser(user) {
+    createUser(user) {
 
         fetch(CREATE_USER_URL, {
             method: 'POST',
@@ -22,4 +22,4 @@ class UserService {
 
 }
 
-export default new UserService();
+export default new CreateUserService();
