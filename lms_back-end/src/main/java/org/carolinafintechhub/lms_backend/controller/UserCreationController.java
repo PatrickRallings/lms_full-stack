@@ -1,7 +1,8 @@
 package org.carolinafintechhub.lms_backend.controller;
 
 import org.carolinafintechhub.lms_backend.model.UserCreationModel;
-import org.carolinafintechhub.lms_backend.services.UserService;
+import org.carolinafintechhub.lms_backend.service.user.UserService;
+import org.carolinafintechhub.lms_backend.validation.UserCreationValidation;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -16,7 +17,13 @@ public class UserCreationController {
     }
 
     @RequestMapping("/create")
-    public UserCreationModel createUser(@RequestBody UserCreationModel userCreationModel) {
-        return userService.createUser(userCreationModel);
+    public UserCreationValidation createUser(@RequestBody UserCreationModel userCreationModel) {
+
+        UserCreationValidation userCreationValidation = new UserCreationValidation(userCreationModel, userService);
+
+        if (userCreationValidation.isValidated()) {
+            userService.createUser(userCreationModel);
+        }
+        return userCreationValidation;
     }
 }

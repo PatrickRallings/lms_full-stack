@@ -1,7 +1,7 @@
 package org.carolinafintechhub.lms_backend.controller;
 
 import org.carolinafintechhub.lms_backend.model.EnrollmentCreationModel;
-import org.carolinafintechhub.lms_backend.services.EnrollmentService;
+import org.carolinafintechhub.lms_backend.service.enrollment.EnrollmentService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
