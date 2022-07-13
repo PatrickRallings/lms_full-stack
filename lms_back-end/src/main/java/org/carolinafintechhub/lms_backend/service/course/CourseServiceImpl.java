@@ -1,7 +1,6 @@
-package org.carolinafintechhub.lms_backend.services;
+package org.carolinafintechhub.lms_backend.service.course;
 
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
-import org.carolinafintechhub.lms_backend.entity.UserEntity;
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.repository.CourseRepository;
 import org.springframework.beans.BeanUtils;

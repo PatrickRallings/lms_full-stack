@@ -1,10 +1,12 @@
-package org.carolinafintechhub.lms_backend.services;
+package org.carolinafintechhub.lms_backend.service.enrollment;
 
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 import org.carolinafintechhub.lms_backend.entity.EnrollmentEntity;
 import org.carolinafintechhub.lms_backend.entity.UserEntity;
 import org.carolinafintechhub.lms_backend.model.EnrollmentCreationModel;
 import org.carolinafintechhub.lms_backend.repository.EnrollmentRepository;
+import org.carolinafintechhub.lms_backend.service.course.CourseService;
+import org.carolinafintechhub.lms_backend.service.user.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
