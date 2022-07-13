@@ -24,14 +24,14 @@ public class UserCreationValidation {
     @JsonIgnore
     UserService userService;
 
-    public UserCreationValidation (UserCreationModel userCreationModel, UserService userService) {
+    public UserCreationValidation(UserCreationModel userCreationModel, UserService userService) {
         this.userCreationModel = userCreationModel;
         this.userService = userService;
         this.errorsPresent = new ArrayList<>();
         runValidation();
     }
 
-    private void runValidation () {
+    private void runValidation() {
         isNotEmptyCheck("firstName", userCreationModel.getFirstName());
         isNotEmptyCheck("lastName", userCreationModel.getLastName());
         isNotEmptyCheck("email", userCreationModel.getEmail());
@@ -41,32 +41,32 @@ public class UserCreationValidation {
         validate();
     }
 
-    private void validate () {
+    private void validate() {
         this.validated = errorsPresent.isEmpty();
     }
 
-    private void addError (String name, String message) {
+    private void addError(String name, String message) {
         ValidationError validationError = new ValidationError(name, message);
         errorsPresent.add(validationError);
     }
 
-    private void isNotEmptyCheck (String name, String value) {
+    private void isNotEmptyCheck(String name, String value) {
         if (value.trim().isEmpty()) {
             addError(name, "This field cannot be empty.");
         }
     }
 
-    private void emailAlreadyTaken () {
+    private void emailAlreadyTaken() {
         if (userService.userExists(userCreationModel)) {
             addError("email", "This email is already in use.");
         }
     }
 
-    private void emailRegexCheck () {
+    private void emailRegexCheck() {
         String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(userCreationModel.getEmail());
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             addError("email", "This is not a valid email.");
         }
     }

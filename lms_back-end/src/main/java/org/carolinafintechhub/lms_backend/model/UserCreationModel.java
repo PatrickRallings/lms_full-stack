@@ -1,5 +1,6 @@
 package org.carolinafintechhub.lms_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserCreationModel {
@@ -13,7 +14,7 @@ public class UserCreationModel {
     @JsonProperty("email")
     private String email;
 
-    @JsonProperty("password")
+    @JsonIgnore
     private String password;
 
     public UserCreationModel() {

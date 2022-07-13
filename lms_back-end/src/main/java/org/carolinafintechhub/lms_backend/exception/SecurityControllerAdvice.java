@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class SecurityControllerAdvice {
 
-    @ExceptionHandler(SecurityException.class)
+    @ExceptionHandler(ValidationException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public SecurityResponse handleSecurityException(SecurityException se) {
+    public SecurityResponse handleSecurityException(ValidationException se) {
         return new SecurityResponse(se.getMessage());
     }
 }

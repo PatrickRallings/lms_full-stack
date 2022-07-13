@@ -1,15 +1,15 @@
 package org.carolinafintechhub.lms_backend.exception;
 
-public class SecurityException extends RuntimeException {
+public class ValidationException extends RuntimeException {
 
     private static final long serialVersionUID = -7806029002430564887L;
 
     private String message;
 
-    public SecurityException() {
+    public ValidationException() {
     }
 
-    public SecurityException(String message) {
+    public ValidationException(String message) {
         this.message = message;
     }
 

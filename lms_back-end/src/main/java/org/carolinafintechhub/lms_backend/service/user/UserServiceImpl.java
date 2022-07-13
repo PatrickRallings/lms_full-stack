@@ -1,6 +1,7 @@
 package org.carolinafintechhub.lms_backend.service.user;
 
 import org.carolinafintechhub.lms_backend.entity.UserEntity;
+import org.carolinafintechhub.lms_backend.exception.ValidationException;
 import org.carolinafintechhub.lms_backend.model.UserCreationModel;
 import org.carolinafintechhub.lms_backend.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
@@ -29,11 +30,11 @@ public class UserServiceImpl implements UserService {
             userRepository.save(userEntity);
             return userCreationModel;
         } else {
-            throw new SecurityException("A user with this email already exists.");
+            throw new ValidationException("Validation failure: A user with this email already exists.");
         }
     }
 
-    public boolean userExists(UserCreationModel userCreationModel){
+    public boolean userExists(UserCreationModel userCreationModel) {
         return userRepository.getUserByEmail(userCreationModel.getEmail()) != null;
     }
 

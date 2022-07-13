@@ -10,7 +10,7 @@ public class ValidationError {
     @JsonProperty("message")
     String errorMessage;
 
-    public ValidationError (String errorName, String errorMessage) {
+    public ValidationError(String errorName, String errorMessage) {
         this.errorName = errorName;
         this.errorMessage = errorMessage;
     }
