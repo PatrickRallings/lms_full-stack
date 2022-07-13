@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ValidationError {
 
-    @JsonProperty("name")
-    String errorName;
+    @JsonProperty("fieldName")
+    String fieldName;
 
-    @JsonProperty("message")
+    @JsonProperty("errorMessage")
     String errorMessage;
 
     public ValidationError(String errorName, String errorMessage) {
-        this.errorName = errorName;
+        this.fieldName = errorName;
         this.errorMessage = errorMessage;
     }
 }
