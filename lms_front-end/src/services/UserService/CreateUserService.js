@@ -13,7 +13,10 @@ class CreateUserService {
         })
             .then(response => response.json())
             .then(data => {
-                if (data.error != null) {
+                if (data.validated !== true) {
+                    alert("Sorry, we were unable to register your account. If an account with this email already exists, please log in.")
+                }
+                else if (data.error != null) {
                     console.log("Error: ",data)
                     alert(data.error)
                 } else {
