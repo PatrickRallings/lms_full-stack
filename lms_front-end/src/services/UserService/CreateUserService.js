@@ -17,7 +17,7 @@ class CreateUserService {
                     alert("Sorry, we were unable to register your account. If an account with this email already exists, please log in.")
                 }
                 else if (data.error != null) {
-                    console.log("Error: ",data)
+                    console.log("Error: ", data)
                     alert(data.error)
                 } else {
                     console.log('Success:', data);

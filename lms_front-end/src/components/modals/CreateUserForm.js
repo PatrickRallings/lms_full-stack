@@ -3,7 +3,7 @@ import CreateUserService from "../../services/UserService/CreateUserService";
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import {Paper, Typography, TextField, Box, Grid, FormControlLabel, Checkbox, Button } from "@mui/material";
+import {Paper, Typography, TextField, Box, Grid, FormControlLabel, Checkbox, Button} from "@mui/material";
 
 function CreateUserForm() {
 
@@ -49,12 +49,18 @@ function CreateUserForm() {
         resolver: yupResolver(validationSchema)
     });
 
+    const styles = {
+        floatingLabelFocusStyle: {
+            color: "orange"
+        }
+    }
+
     return (
             <Fragment>
                 <Paper>
                     <Box px={3} py={2}>
                         <Grid container spacing={1}>
-                            <Grid item xs={12} sm={12}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
                                     id="firstName"
@@ -88,7 +94,7 @@ function CreateUserForm() {
                                     {errors.lastName?.message}
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={12}>
                                 <TextField
                                     required
                                     id="email"
