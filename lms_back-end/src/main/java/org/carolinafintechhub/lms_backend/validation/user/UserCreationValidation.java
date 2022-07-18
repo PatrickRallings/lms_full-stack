@@ -1,9 +1,10 @@
-package org.carolinafintechhub.lms_backend.validation;
+package org.carolinafintechhub.lms_backend.validation.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.carolinafintechhub.lms_backend.model.UserCreationModel;
 import org.carolinafintechhub.lms_backend.service.user.UserService;
+import org.carolinafintechhub.lms_backend.validation.ValidationError;
 
 import java.util.ArrayList;
 import java.util.List;

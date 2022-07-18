@@ -1,4 +1,4 @@
-package org.carolinafintechhub.lms_backend.controller;
+package org.carolinafintechhub.lms_backend.controller.course;
 
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.service.course.CourseService;

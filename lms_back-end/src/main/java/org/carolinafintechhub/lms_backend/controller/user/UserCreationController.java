@@ -1,8 +1,8 @@
-package org.carolinafintechhub.lms_backend.controller;
+package org.carolinafintechhub.lms_backend.controller.user;
 
 import org.carolinafintechhub.lms_backend.model.UserCreationModel;
 import org.carolinafintechhub.lms_backend.service.user.UserService;
-import org.carolinafintechhub.lms_backend.validation.UserCreationValidation;
+import org.carolinafintechhub.lms_backend.validation.user.UserCreationValidation;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:3000")

@@ -1,4 +1,4 @@
-package org.carolinafintechhub.lms_backend.controller;
+package org.carolinafintechhub.lms_backend.controller.enrollment;
 
 import org.carolinafintechhub.lms_backend.model.EnrollmentCreationModel;
 import org.carolinafintechhub.lms_backend.service.enrollment.EnrollmentService;
