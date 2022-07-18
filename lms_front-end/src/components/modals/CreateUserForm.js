@@ -1,9 +1,20 @@
-import React, {useState, Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import CreateUserService from "../../services/UserService/CreateUserService";
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {Controller, useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import {Paper, Typography, TextField, Box, Grid, FormControlLabel, Checkbox, Button} from "@mui/material";
+import {
+    Box,
+    Button,
+    Checkbox,
+    FormControlLabel,
+    Grid,
+    Paper,
+    TextField,
+    ThemeProvider,
+    Typography
+} from "@mui/material";
+import {materialsUITheme} from "../common/materialsUITheme";
 
 function CreateUserForm() {
 
@@ -49,13 +60,8 @@ function CreateUserForm() {
         resolver: yupResolver(validationSchema)
     });
 
-    const styles = {
-        floatingLabelFocusStyle: {
-            color: "orange"
-        }
-    }
-
     return (
+        <ThemeProvider theme={materialsUITheme}>
             <Fragment>
                 <Paper>
                     <Box px={3} py={2}>
@@ -187,6 +193,7 @@ function CreateUserForm() {
                     </Box>
                 </Paper>
             </Fragment>
+        </ThemeProvider>
 
     );
 }
