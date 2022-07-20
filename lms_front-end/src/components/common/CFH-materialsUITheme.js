@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-export const materialsUITheme = createTheme({
+export const CFHMaterialsUITheme = createTheme({
     palette: {
         type: 'light',
         primary: {

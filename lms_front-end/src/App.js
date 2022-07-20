@@ -1,11 +1,9 @@
-import Navbar from "./components/navigation/Navbar"
-import CreateUserForm from "./components/modals/CreateUserForm";
+import RegisterPage from "./components/pages/RegisterPage";
 
 function App() {
   return (
     <>
-      <Navbar />
-        <CreateUserForm  />
+        <RegisterPage />
     </>
   );
 }
