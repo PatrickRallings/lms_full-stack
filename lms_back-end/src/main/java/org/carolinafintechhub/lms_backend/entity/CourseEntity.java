@@ -22,10 +22,10 @@ public class CourseEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
-    public CourseEntity() {
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
+    private Set<RichTextBlockEntity> courseComponentEntities = new HashSet<>();
 
-    ;
+    public CourseEntity() {};
 
     public CourseEntity(String title, String body) {
         this.title = title;
