@@ -50,10 +50,6 @@ public class courseCreationValidation {
         this.validated = errorsPresentList.isEmpty();
     }
 
-    private void isTitleAlreadyInUse () {
-
-    }
-
     public boolean isValidated() {
         return validated;
     }
