@@ -9,14 +9,13 @@ import {
     Checkbox,
     FormControlLabel,
     Grid,
-    Paper,
     TextField,
     ThemeProvider,
     Typography
 } from "@mui/material";
-import {materialsUITheme} from "../common/materialsUITheme";
+import {CFHMaterialsUITheme} from "../common/CFH-materialsUITheme";
 
-function CreateUserForm() {
+function RegisterUserForm() {
 
     const [user, setUser] = useState({
             firstName: "",
@@ -61,10 +60,9 @@ function CreateUserForm() {
     });
 
     return (
-        <ThemeProvider theme={materialsUITheme}>
+        <ThemeProvider theme={CFHMaterialsUITheme}>
             <Fragment>
-                <Paper>
-                    <Box px={3} py={2}>
+                    <div id={"register-form-container"}>
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -190,12 +188,11 @@ function CreateUserForm() {
                                 Register
                             </Button>
                         </Box>
-                    </Box>
-                </Paper>
+                    </div>
             </Fragment>
         </ThemeProvider>
 
     );
 }
 
-export default CreateUserForm;
+export default RegisterUserForm;
