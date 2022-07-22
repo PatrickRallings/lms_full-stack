@@ -11,8 +11,9 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "mui-rte": "^2.0.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-hook-form": "^7.33.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
@@ -22,8 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -45,8 +45,5 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7"
-  },
-  "resolutions": {
-    "@types/react": "^18.2.0"
   }
 }
