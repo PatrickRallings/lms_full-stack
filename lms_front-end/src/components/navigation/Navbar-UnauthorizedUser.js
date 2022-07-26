@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
-import {CFHMaterialsUITheme} from "../common/CFH-materialsUITheme";
+import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
 import CFHLogo from "../../images/CFHLogo.svg"
 
 const pages = ['Home', 'Courses', 'Progress'];

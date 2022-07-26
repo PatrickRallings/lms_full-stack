@@ -15,9 +15,26 @@
     /*background-image: url("../images/Hexagon.svg");*/
 }
 
+#create_course-page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-image: url("../images/Hexagon.svg");*/
+}
+
 #register-form-container {
     margin: 5%;
     max-width: 63%;
+    border: 3px solid #3A1026;
+    border-radius: 21px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#create_course-form-container {
+    margin-top: 5%;
+    max-width: 75%;
     border: 3px solid #3A1026;
     border-radius: 21px;
     padding: 10px;
