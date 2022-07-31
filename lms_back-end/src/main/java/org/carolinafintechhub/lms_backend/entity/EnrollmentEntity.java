@@ -22,16 +22,12 @@ public class EnrollmentEntity {
     private CourseEntity courseEntity;
 
     public EnrollmentEntity() {
-    }
-
-    ;
+    };
 
     public EnrollmentEntity(UserEntity userEntity, CourseEntity courseEntity) {
         this.userEntity = userEntity;
         this.courseEntity = courseEntity;
-    }
-
-    ;
+    };
 
 
     public Long getId() {

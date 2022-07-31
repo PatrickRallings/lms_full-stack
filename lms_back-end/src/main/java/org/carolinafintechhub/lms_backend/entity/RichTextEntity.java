@@ -3,7 +3,7 @@ package org.carolinafintechhub.lms_backend.entity;
 import javax.persistence.*;
 
 @Entity
-public class RichTextBlockEntity implements CourseComponentEntity {
+public class RichTextEntity implements CourseComponentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +16,11 @@ public class RichTextBlockEntity implements CourseComponentEntity {
     @Column(name = "content", nullable = false)
     String content;
 
-    public RichTextBlockEntity (String content) {
+    public RichTextEntity(String content) {
         this.content = content;
     }
 
-    public RichTextBlockEntity() {};
+    public RichTextEntity() {};
 
     public String getContent() {
         return content;
@@ -36,5 +36,14 @@ public class RichTextBlockEntity implements CourseComponentEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "RichTextBlockEntity{" +
+                "id=" + id +
+                ", courseEntity=" + courseEntity +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

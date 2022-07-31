@@ -1,5 +1,5 @@
-import RegisterPage from "./components/pages/RegisterPage";
-import CreateCoursePage from "./components/pages/CreateCoursePage";
+import RegisterPage from "./pages/RegisterPage";
+import CreateCoursePage from "./pages/CreateCoursePage";
 
 function App() {
   return (
