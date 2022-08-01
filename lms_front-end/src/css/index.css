@@ -1,18 +1,45 @@
-/*Common Page Characteristics*/
+/*Custom Grid System*/
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 7px;
+    margin: 7px;
+}
 
+.flex-row-space {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 7px;
+    margin: 7px;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px;
+    margin: 7px;
+}
+
+.margin-standard {
+    margin: 8px;
+}
+
+
+/*Common Page Characteristics*/
 #page-container {
     height: 100vh;
     margin: 0;
 }
 
 /*Registration Page*/
-
 #register-page-container {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-image: url("../images/Hexagon.svg");*/
 }
 
 #create_course-page-container {

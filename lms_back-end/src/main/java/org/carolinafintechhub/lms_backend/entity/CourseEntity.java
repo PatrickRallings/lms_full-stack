@@ -23,7 +23,7 @@ public class CourseEntity {
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
-    private Set<RichTextBlockEntity> courseComponentEntities = new HashSet<>();
+    private Set<RichTextEntity> courseComponentEntities = new HashSet<>();
 
     public CourseEntity() {};
 

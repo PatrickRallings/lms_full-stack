@@ -1,6 +1,6 @@
-import CreateRichTextForm from "../forms/CreateRichTextForm";
-import Navbar from "../navigation/Navbar-UnauthorizedUser";
-import RegisterUserForm from "../forms/RegisterUserForm";
+import CreateRichTextForm from "../components/forms/CreateRichTextForm";
+import Navbar from "../components/navigation/Navbar-UnauthorizedUser";
+import RegisterUserForm from "../components/forms/RegisterUserForm";
 
 
 const CreateCoursePage = () => {
