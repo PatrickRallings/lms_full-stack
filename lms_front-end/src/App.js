@@ -1,11 +1,11 @@
-import RegisterPage from "./pages/RegisterPage";
-import CreateCoursePage from "./pages/CreateCoursePage";
+import NavbarAuthorizedUser from "./components/navigation/Navbar-AuthorizedUser";
+import {Outlet} from "react-router-dom"
 
 function App() {
   return (
     <>
-        {/*<RegisterPage />*/}
-        <CreateCoursePage />
+        <NavbarAuthorizedUser/>
+        <Outlet />
     </>
   );
 }

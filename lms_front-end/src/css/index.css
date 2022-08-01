@@ -67,3 +67,9 @@
     padding: 10px;
     overflow: hidden;
 }
+
+/*NavBar*/
+.main-nav-link {
+    text-decoration: none;
+    color: #3A1026;
+}
