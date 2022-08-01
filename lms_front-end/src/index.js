@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import "./css/index.css"
 import App from './App';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import CreateCoursePage from "./pages/CreateCoursePage";
-import RegisterPage from "./pages/RegisterPage";
+import CreateCoursePage from "./routes/CreateCourse/CreateCoursePage";
+import RegisterUserPage from "./routes/RegisterUser/RegisterUserPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +13,7 @@ root.render(
           <Routes >
           <Route path="/" element={<App />}>
               <Route path="CreateCoursePage" element={<CreateCoursePage />}/>
-              <Route path="RegisterPage" element={<RegisterPage />}/>
+              <Route path="RegisterUserPage" element={<RegisterUserPage />}/>
           </Route>
           </Routes>
       </BrowserRouter>

@@ -13,12 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
 import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
-import CFHLogo from "../../images/CFHLogo.svg"
+import CFHLogo from "../images/CFHLogo.svg"
+import {Link} from "react-router-dom";
 
-const pages = ['Home', 'Courses', 'Progress'];
+const pages = [['Home', '/'], ['Create Course', '/CreateCoursePage'], ['Register', '/RegisterUserPage']];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const NavbarUnauthorizedUser = () => {
+const NavbarAuthorizedUser = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -78,8 +79,8 @@ const NavbarUnauthorizedUser = () => {
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                    <MenuItem key={page[0]} onClick={handleCloseNavMenu}>
+                                        <Link className="main-nav-link" to={page[1]}>{page[0]}</Link>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -92,11 +93,11 @@ const NavbarUnauthorizedUser = () => {
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page) => (
                                 <Button
-                                    key={page}
+                                    key={page[0]}
                                     onClick={handleCloseNavMenu}
                                     sx={{my: 2, color: 'white', display: 'block'}}
                                 >
-                                    {page}
+                                    <Link className="main-nav-link"  to={page[1]}>{page[0]}</Link>
                                 </Button>
                             ))}
                         </Box>
@@ -136,4 +137,5 @@ const NavbarUnauthorizedUser = () => {
         </ThemeProvider>
     );
 };
-export default NavbarUnauthorizedUser;
+export default NavbarAuthorizedUser;
+

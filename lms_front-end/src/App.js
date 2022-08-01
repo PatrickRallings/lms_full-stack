@@ -1,4 +1,4 @@
-import NavbarAuthorizedUser from "./components/navigation/Navbar-AuthorizedUser";
+import NavbarAuthorizedUser from "./navigation/Navbar-AuthorizedUser";
 import {Outlet} from "react-router-dom"
 
 function App() {

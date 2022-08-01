@@ -1,7 +1,7 @@
 import { RichTextEditor} from '@mantine/rte';
 import {useState} from "react";
 import Button from "@mui/material/Button";
-import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
+import {CFHMaterialsUITheme} from "../../../themes/CFH-materialsUITheme";
 import {ThemeProvider} from "@mui/material";
 
 const CreateRichTextForm = () => {

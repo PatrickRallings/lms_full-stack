@@ -13,13 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
 import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
-import CFHLogo from "../../images/CFHLogo.svg"
-import {Link} from "react-router-dom";
+import CFHLogo from "../images/CFHLogo.svg"
 
-const pages = [['Home', '/'], ['Create Course', '/CreateCoursePage'], ['Register', '/RegisterPage']];
+const pages = ['Home', 'Courses', 'Progress'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const NavbarAuthorizedUser = () => {
+const NavbarUnauthorizedUser = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -79,8 +78,8 @@ const NavbarAuthorizedUser = () => {
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page[0]} onClick={handleCloseNavMenu}>
-                                        <Link className="main-nav-link" to={page[1]}>{page[0]}</Link>
+                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                        <Typography textAlign="center">{page}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -93,11 +92,11 @@ const NavbarAuthorizedUser = () => {
                         <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page) => (
                                 <Button
-                                    key={page[0]}
+                                    key={page}
                                     onClick={handleCloseNavMenu}
                                     sx={{my: 2, color: 'white', display: 'block'}}
                                 >
-                                    <Link className="main-nav-link"  to={page[1]}>{page[0]}</Link>
+                                    {page}
                                 </Button>
                             ))}
                         </Box>
@@ -137,5 +136,4 @@ const NavbarAuthorizedUser = () => {
         </ThemeProvider>
     );
 };
-export default NavbarAuthorizedUser;
-
+export default NavbarUnauthorizedUser;

@@ -1,4 +1,4 @@
-import CreateRichTextForm from "../components/forms/CreateRichTextForm";
+import CreateRichTextForm from "./components/CreateRichTextForm";
 
 const CreateCoursePage = () => {
 
