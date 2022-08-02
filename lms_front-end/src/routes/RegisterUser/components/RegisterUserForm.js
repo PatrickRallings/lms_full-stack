@@ -13,7 +13,7 @@ import {
     ThemeProvider,
     Typography
 } from "@mui/material";
-import {CFHMaterialsUITheme} from "../../../themes/CFH-materialsUITheme";
+import {CFHMaterialsUITheme} from "../../../style/themes/CFH-materialsUITheme";
 
 function RegisterUserForm() {
 

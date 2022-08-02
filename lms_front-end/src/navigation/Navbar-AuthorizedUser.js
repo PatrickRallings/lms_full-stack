@@ -12,8 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
-import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
-import CFHLogo from "../images/CFHLogo.svg"
+import {CFHMaterialsUITheme} from "../style/themes/CFH-materialsUITheme";
+import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
 
 const pages = [['Home', '/'], ['Create Course', '/CreateCoursePage'], ['Register', '/RegisterUserPage']];
