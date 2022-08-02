@@ -1,6 +1,7 @@
 package org.carolinafintechhub.lms_backend.service.course;
 
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
+import org.carolinafintechhub.lms_backend.exception.ValidationException;
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.repository.CourseRepository;
 import org.springframework.beans.BeanUtils;
@@ -19,12 +20,20 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseCreationModel createCourse(CourseCreationModel courseCreationModel) {
-        CourseEntity courseEntity = new CourseEntity();
 
-        BeanUtils.copyProperties(courseCreationModel, courseEntity);
-        courseRepository.save(courseEntity);
+        if (!courseExists(courseCreationModel)) {
+            CourseEntity courseEntity = new CourseEntity();
+            BeanUtils.copyProperties(courseCreationModel, courseEntity);
+            courseRepository.save(courseEntity);
+            return courseCreationModel;
+        } else {
+            throw new ValidationException("Validation Failure: A course with this title already exists.");
+        }
+    }
 
-        return courseCreationModel;
+    @Override
+    public boolean courseExists(CourseCreationModel courseCreationModel) {
+        return courseRepository.getCourseByTitle(courseCreationModel.getTitle()) != null;
     }
 
     @Override

@@ -10,8 +10,8 @@ public class RichTextEntity implements CourseComponentEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    CourseEntity courseEntity;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    CourseEntity courseEntity;
 
     @Column(name = "content", nullable = false)
     String content;
@@ -42,7 +42,7 @@ public class RichTextEntity implements CourseComponentEntity {
     public String toString() {
         return "RichTextBlockEntity{" +
                 "id=" + id +
-                ", courseEntity=" + courseEntity +
+//                ", courseEntity=" + courseEntity +
                 ", content='" + content + '\'' +
                 '}';
     }

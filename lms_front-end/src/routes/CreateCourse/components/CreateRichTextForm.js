@@ -1,7 +1,7 @@
 import { RichTextEditor} from '@mantine/rte';
 import {useState} from "react";
 import Button from "@mui/material/Button";
-import {CFHMaterialsUITheme} from "../themes/CFH-materialsUITheme";
+import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import {ThemeProvider} from "@mui/material";
 
 const CreateRichTextForm = () => {
@@ -9,7 +9,7 @@ const CreateRichTextForm = () => {
     const [value, onChange] = useState("");
 
     return (
-        <ThemeProvider theme={CFHMaterialsUITheme}>
+        <ThemeProvider theme={OrangeCFHTheme}>
             <div className={"flex-column-center"}>
                 <div className={"flex-row-center"}>
                     <RichTextEditor

@@ -1,13 +1,13 @@
 import { createTheme } from '@mui/material/styles'
 
-export const CFHMaterialsUITheme = createTheme({
+export const PinkCFHTheme = createTheme({
     palette: {
         type: 'light',
         primary: {
-            main: '#fd7633',
-            light: '#D81A5E',
+            main: '#D81A5E',
+            light: '#fd7633',
             dark: '#3A1026',
-            contrastText: '#D81A5E',
+            contrastText: '#FFF',
         },
         secondary: {
             main: '#6d3c4e',

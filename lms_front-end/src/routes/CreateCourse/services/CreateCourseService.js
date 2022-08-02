@@ -1,20 +1,20 @@
-const CREATE_USER_URL = "http://localhost:8080/api/v1/user/create";
+const CREATE_COURSE_URL = "http://localhost:8080/api/v1/course/create";
 
-class CreateUserService {
+class CreateCourseService {
 
-    createUser(user) {
+    createCourse(course) {
 
-        fetch(CREATE_USER_URL, {
+        fetch(CREATE_COURSE_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(user),
+            body: JSON.stringify(course),
         })
             .then(response => response.json())
             .then(data => {
                 if (data.validated !== true) {
-                    alert("Sorry, we were unable to register your account. If an account with this email already exists, please log in.")
+                    alert("Sorry, a course with this title already exists.")
                 }
                 else if (data.error != null) {
                     console.log("Error: ", data)
@@ -30,4 +30,4 @@ class CreateUserService {
 
 }
 
-export default new CreateUserService();
+export default new CreateCourseService();

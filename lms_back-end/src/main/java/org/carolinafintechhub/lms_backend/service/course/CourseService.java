@@ -7,5 +7,7 @@ public interface CourseService {
 
     CourseCreationModel createCourse(CourseCreationModel courseCreationModel);
 
+    boolean courseExists(CourseCreationModel courseCreationModel);
+
     CourseEntity getCourseById(Long id);
 }
