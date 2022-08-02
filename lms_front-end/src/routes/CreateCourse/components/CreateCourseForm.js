@@ -1,5 +1,4 @@
 import React, {Fragment, useState} from 'react';
-// import CreateUserService from "../services/RegisterUserService";
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -12,6 +11,7 @@ import {
     Typography
 } from "@mui/material";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
+import CreateCourseService from "../services/CreateCourseService";
 
 function CreateCourseForm() {
 
@@ -29,7 +29,7 @@ function CreateCourseForm() {
 
     const createCourse = () => {
         console.log("Dev - saveUser function initiated")
-        // CreateUserService.createUser(course)
+        CreateCourseService.createCourse(course)
     }
 
     const validationSchema = Yup.object().shape({

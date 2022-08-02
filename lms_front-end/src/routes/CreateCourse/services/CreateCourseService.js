@@ -14,7 +14,7 @@ class CreateCourseService {
             .then(response => response.json())
             .then(data => {
                 if (data.validated !== true) {
-                    alert("")
+                    alert("Sorry, a course with this title already exists.")
                 }
                 else if (data.error != null) {
                     console.log("Error: ", data)

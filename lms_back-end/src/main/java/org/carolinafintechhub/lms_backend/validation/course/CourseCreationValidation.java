@@ -6,15 +6,16 @@ import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.service.course.CourseService;
 import org.carolinafintechhub.lms_backend.validation.ValidationError;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class courseCreationValidation {
+public class CourseCreationValidation {
 
     @JsonProperty("validated")
     boolean validated;
 
     @JsonProperty("errorsPresent")
-    List<ValidationError> errorsPresentList;
+    List<ValidationError> errorsPresent;
 
     @JsonProperty("course")
     CourseCreationModel courseCreationModel;
@@ -22,31 +23,38 @@ public class courseCreationValidation {
     @JsonIgnore
     CourseService courseService;
 
-    public courseCreationValidation (CourseCreationModel courseCreationModel, CourseService courseService) {
+    public CourseCreationValidation(CourseCreationModel courseCreationModel, CourseService courseService) {
         this.courseCreationModel = courseCreationModel;
         this.courseService = courseService;
+        this.errorsPresent = new ArrayList<>();
         runValidation();
     }
 
     private void runValidation () {
         isNotEmptyCheck("title", courseCreationModel.getTitle());
+        titleAlreadyTaken();
         validate();
     }
 
     private void addError (String name, String message) {
         ValidationError validationError = new ValidationError(name, message);
-        errorsPresentList.add(validationError);
+        errorsPresent.add(validationError);
     }
 
     private void isNotEmptyCheck (String name, String value) {
-        String valueChecked = value.trim();
-        if (valueChecked.isEmpty()) {
+        if (value.trim().isEmpty()) {
             addError(name, "This field cannot be empty.");
         }
     }
 
+    private void titleAlreadyTaken() {
+        if (courseService.courseExists(courseCreationModel)) {
+            addError("title", "This course title is already in use.");
+        }
+    }
+
     private void validate () {
-        this.validated = errorsPresentList.isEmpty();
+        this.validated = errorsPresent.isEmpty();
     }
 
     public boolean isValidated() {
@@ -57,12 +65,12 @@ public class courseCreationValidation {
         this.validated = validated;
     }
 
-    public List<ValidationError> getErrorsPresentList() {
-        return errorsPresentList;
+    public List<ValidationError> getErrorsPresent() {
+        return errorsPresent;
     }
 
-    public void setErrorsPresentList(List<ValidationError> errorsPresentList) {
-        this.errorsPresentList = errorsPresentList;
+    public void setErrorsPresentList(List<ValidationError> errorsPresent) {
+        this.errorsPresent = errorsPresent;
     }
 
     public CourseCreationModel getCourseCreationModel() {
@@ -85,7 +93,7 @@ public class courseCreationValidation {
     public String toString() {
         return "courseCreationValidation{" +
                 "validated=" + validated +
-                ", errorsPresentList=" + errorsPresentList +
+                ", errorsPresentList=" + errorsPresent +
                 ", courseCreationModel=" + courseCreationModel +
                 ", courseService=" + courseService +
                 '}';

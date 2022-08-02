@@ -5,7 +5,6 @@ import org.carolinafintechhub.lms_backend.service.user.UserService;
 import org.carolinafintechhub.lms_backend.validation.user.UserCreationValidation;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/user")
 public class UserCreationController {
