@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import CreateUserService from "../../../services/UserService/CreateUserService";
+import CreateUserService from "../services/RegisterUserService";
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';

@@ -1,6 +1,6 @@
 const CREATE_USER_URL = "http://localhost:8080/api/v1/user/create";
 
-class CreateUserService {
+class RegisterUserService {
 
     createUser(user) {
 
@@ -30,4 +30,4 @@ class CreateUserService {
 
 }
 
-export default new CreateUserService();
+export default new RegisterUserService();
