@@ -1,11 +1,17 @@
 import CreateRichTextForm from "./components/CreateRichTextForm";
+import CreateCourseForm from "./components/CreateCourseForm";
 
 const CreateCoursePage = () => {
 
     return (
         <div className={"page-container"}>
-            <div id={"create_course-page-container"}>
-                <CreateRichTextForm />
+            <div className={"content-container"}>
+                <div className={"container-heading"}>
+                        <span>Create New Course</span>
+                </div>
+                <div className={"container-body"}>
+                    <CreateCourseForm />
+                </div>
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
-import {CFHMaterialsUITheme} from "../style/themes/CFH-materialsUITheme";
+import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
 
@@ -40,7 +40,7 @@ const NavbarAuthorizedUser = () => {
     };
 
     return (
-        <ThemeProvider theme={CFHMaterialsUITheme}>
+        <ThemeProvider theme={PinkCFHTheme}>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>

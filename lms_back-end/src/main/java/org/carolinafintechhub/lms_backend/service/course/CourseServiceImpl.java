@@ -3,6 +3,7 @@ package org.carolinafintechhub.lms_backend.service.course;
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.repository.CourseRepository;
+import org.carolinafintechhub.lms_backend.validation.course.courseCreationValidation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseCreationModel createCourse(CourseCreationModel courseCreationModel) {
+    public courseCreationValidation createCourse(CourseCreationModel courseCreationModel) {
         CourseEntity courseEntity = new CourseEntity();
 
         BeanUtils.copyProperties(courseCreationModel, courseEntity);

@@ -7,8 +7,8 @@ public class CourseCreationModel {
     @JsonProperty("title")
     private String title;
 
-    @JsonProperty("body")
-    private String body;
+    @JsonProperty("description")
+    private String description;
 
     public String getTitle() {
         return title;
@@ -18,19 +18,19 @@ public class CourseCreationModel {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return "CourseCreationModel{" +
                 "title='" + title + '\'' +
-                ", body='" + body + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

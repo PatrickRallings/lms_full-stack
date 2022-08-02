@@ -1,19 +1,17 @@
 import React, {Fragment, useState} from 'react';
 import CreateUserService from "../services/RegisterUserService";
-import {Controller, useForm} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import {
     Box,
     Button,
-    Checkbox,
-    FormControlLabel,
     Grid,
     TextField,
     ThemeProvider,
     Typography
 } from "@mui/material";
-import {CFHMaterialsUITheme} from "../../../style/themes/CFH-materialsUITheme";
+import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 
 function RegisterUserForm() {
 
@@ -52,7 +50,6 @@ function RegisterUserForm() {
 
     const {
         register,
-        control,
         handleSubmit,
         formState: { errors }
     } = useForm({
@@ -60,9 +57,9 @@ function RegisterUserForm() {
     });
 
     return (
-        <ThemeProvider theme={CFHMaterialsUITheme}>
+        <ThemeProvider theme={OrangeCFHTheme}>
             <Fragment>
-                    <div id={"register-form-container"}>
+                    <div>
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -147,35 +144,6 @@ function RegisterUserForm() {
                                 />
                                 <Typography variant="inherit" color="textSecondary">
                                     {errors.confirmPassword?.message}
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={
-                                        <Controller
-                                            control={control}
-                                            name="acceptTerms"
-                                            defaultValue="false"
-                                            inputRef={register()}
-                                            render={({ field: { onChange } }) => (
-                                                <Checkbox
-                                                    color="primary"
-                                                    onChange={e => onChange(e.target.checked)}
-                                                />
-                                            )}
-                                        />
-                                    }
-                                    label={
-                                        <Typography color={errors.acceptTerms ? 'error' : 'inherit'}>
-                                            I have read and agree to the Terms *
-                                        </Typography>
-                                    }
-                                />
-                                <br />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.acceptTerms
-                                        ? '(' + errors.acceptTerms.message + ')'
-                                        : ''}
                                 </Typography>
                             </Grid>
                         </Grid>

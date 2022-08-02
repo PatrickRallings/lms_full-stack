@@ -30,7 +30,6 @@ public class courseCreationValidation {
 
     private void runValidation () {
         isNotEmptyCheck("title", courseCreationModel.getTitle());
-        isNotEmptyCheck("body", courseCreationModel.getBody());
         validate();
     }
 

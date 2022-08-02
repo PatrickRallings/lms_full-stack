@@ -1,6 +1,7 @@
 package org.carolinafintechhub.lms_backend.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,23 +14,26 @@ public class CourseEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "body")
-    private String body;
+    @Column(name = "description", nullable = true)
+    private String description;
+
+    @Column(name= "date_created")
+    private final Date dateCreated = new Date();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
-    private Set<RichTextEntity> courseComponentEntities = new HashSet<>();
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
+//    private final Set<RichTextEntity> courseComponentEntities = new HashSet<>();
 
     public CourseEntity() {};
 
-    public CourseEntity(String title, String body) {
+    public CourseEntity(String title, String description) {
         this.title = title;
-        this.body = body;
+        this.description = description;
     }
 
     public Long getId() {
@@ -48,12 +52,16 @@ public class CourseEntity {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
     public Set<EnrollmentEntity> getEnrollmentEntities() {
@@ -66,10 +74,11 @@ public class CourseEntity {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "CourseEntity{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", body='" + body + '\'' +
+                ", description='" + description + '\'' +
+                ", dateCreated=" + dateCreated +
                 '}';
     }
 }
