@@ -16,7 +16,7 @@ import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
 
-const pages = [['Home', '/'], ['Create Course', '/CreateCoursePage'], ['Register', '/RegisterUserPage']];
+const pages = [['Dashboard', '/'], ['Create Course', '/create-course'], ['Register', '/register-user'], ['Courses', '/view-all-courses']];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavbarAuthorizedUser = () => {

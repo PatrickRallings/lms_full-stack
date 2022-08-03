@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import "./style/css/index.css"
 import App from './App';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import CreateCoursePage from "./routes/CreateCourse/CreateCoursePage";
-import RegisterUserPage from "./routes/RegisterUser/RegisterUserPage";
+import CreateCourse from "./routes/CreateCourse/pages/create-course";
+import RegisterUser from "./routes/RegisterUser/pages/register-user";
+import ViewAllCourses from "./routes/ViewCourse/pages/view-all-courses";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,8 +13,9 @@ root.render(
       <BrowserRouter>
           <Routes >
           <Route path="/" element={<App />}>
-              <Route path="CreateCoursePage" element={<CreateCoursePage />}/>
-              <Route path="RegisterUserPage" element={<RegisterUserPage />}/>
+              <Route path="create-course" element={<CreateCourse />}/>
+              <Route path="register-user" element={<RegisterUser />}/>
+              <Route path="view-all-courses" element={<ViewAllCourses />}/>
           </Route>
           </Routes>
       </BrowserRouter>

@@ -7,6 +7,7 @@ import org.carolinafintechhub.lms_backend.repository.CourseRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,5 +45,10 @@ public class CourseServiceImpl implements CourseService {
         } else {
             throw new RuntimeException("Course not found.");
         }
+    }
+
+    @Override
+    public List<CourseEntity> getAllCourses() {
+        return courseRepository.findAll();
     }
 }
