@@ -2,6 +2,7 @@ package org.carolinafintechhub.lms_backend.service.course;
 
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
+import org.carolinafintechhub.lms_backend.model.CourseViewModel;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface CourseService {
 
     CourseEntity getCourseById(Long id);
 
-    List<CourseEntity> getAllCourses();
+    List<CourseViewModel> getAllCourses();
 }

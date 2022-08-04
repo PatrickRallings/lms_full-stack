@@ -7,16 +7,16 @@ import {CardActionArea, ThemeProvider} from '@mui/material';
 
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 
-const CourseCard = ({courseCardImage, courseCardTitle, courseCardDescription}) => {
+const CourseCard = ({courseCardTitle, courseCardDescription}) => {
     return (
         <ThemeProvider theme={OrangeCFHTheme}>
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={courseCardImage}
-                />
+                {/*<CardMedia*/}
+                {/*    component="img"*/}
+                {/*    height="140"*/}
+                {/*    image={courseCardImage}*/}
+                {/*/>*/}
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {courseCardTitle}

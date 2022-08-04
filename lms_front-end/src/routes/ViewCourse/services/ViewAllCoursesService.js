@@ -1,22 +1,17 @@
-const CREATE_USER_URL = "http://localhost:8080/api/v1/courses/view-all";
+const VIEW_COURSES_URL = "http://localhost:8080/api/v1/courses/view-all";
 
 class ViewAllCoursesService {
 
-    getHTML() {
-        let courses = null;
-
-        fetch(CREATE_USER_URL, {
+    getCourses() {
+        return fetch(VIEW_COURSES_URL, {
             method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
         })
-            .then(response => response.json())
-            .then(data => {
-                courses = data;
-                console.log(data)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        return courses;
+            .then(response => response.json()
+            )
     }
 }
 
