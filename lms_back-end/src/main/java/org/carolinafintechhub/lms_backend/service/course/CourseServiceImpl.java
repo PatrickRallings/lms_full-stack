@@ -53,12 +53,12 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseViewModel> getAllCourses() {
         List<CourseEntity> courseEntities = courseRepository.findAll();
 
-        List<CourseViewModel> coursesViewModels = courseEntities
+        return courseEntities
                 .stream().map(course -> new CourseViewModel(
                         course.getTitle(),
-                        course.getDescription()))
+                        course.getDescription(),
+                        course.getPreviewImage()))
                                 .collect(Collectors.toList());
-        return coursesViewModels;
 
     }
 }

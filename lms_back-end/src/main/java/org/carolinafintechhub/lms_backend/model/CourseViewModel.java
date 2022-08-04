@@ -10,15 +10,19 @@ public class CourseViewModel {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("image")
+    private String previewImage;
+
     public String getTitle() {
         return title;
     }
 
     public CourseViewModel (){};
 
-    public CourseViewModel (String title, String description) {
+    public CourseViewModel (String title, String description, String previewImage) {
         this.title = title;
         this.description = description;
+        this.previewImage = previewImage;
     }
 
     public void setTitle(String title) {
@@ -33,11 +37,20 @@ public class CourseViewModel {
         this.description = description;
     }
 
+    public String getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
+    }
+
     @Override
     public String toString() {
-        return "CourseCreationModel{" +
+        return "CourseViewModel{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", previewImage='" + previewImage + '\'' +
                 '}';
     }
 }

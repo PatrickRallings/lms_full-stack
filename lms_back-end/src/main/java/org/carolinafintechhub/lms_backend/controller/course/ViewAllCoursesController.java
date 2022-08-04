@@ -1,6 +1,5 @@
 package org.carolinafintechhub.lms_backend.controller.course;
 
-import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 import org.carolinafintechhub.lms_backend.model.CourseViewModel;
 import org.carolinafintechhub.lms_backend.service.course.CourseService;
 import org.springframework.web.bind.annotation.RequestMapping;

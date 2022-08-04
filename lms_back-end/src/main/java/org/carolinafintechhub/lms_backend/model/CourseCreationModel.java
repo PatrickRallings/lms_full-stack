@@ -10,6 +10,9 @@ public class CourseCreationModel {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("image")
+    private String previewImage;
+
     public String getTitle() {
         return title;
     }
@@ -26,11 +29,20 @@ public class CourseCreationModel {
         this.description = description;
     }
 
+    public String getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
+    }
+
     @Override
     public String toString() {
         return "CourseCreationModel{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", previewImage='" + previewImage + '\'' +
                 '}';
     }
 }

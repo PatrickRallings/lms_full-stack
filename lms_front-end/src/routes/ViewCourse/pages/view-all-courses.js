@@ -13,6 +13,7 @@ const ViewAllCourses = () => {
         ViewAllCoursesService.getCourses()
             .then(data => {
                 setCourses(data)
+                console.log(data)
                 setLoading(false)
             })
             .catch((error) => {
@@ -26,7 +27,7 @@ const ViewAllCourses = () => {
             {!loading && (
                 <div>
                     {courses.map((course) => (
-                        <CourseCard key={course.title} courseCardTitle={course.title} courseCardDescription={course.description}/>
+                        <CourseCard key={course.title} courseCardTitle={course.title} courseCardDescription={course.description} coursePreviewImage={course.image}/>
                         )
 
                     )}
