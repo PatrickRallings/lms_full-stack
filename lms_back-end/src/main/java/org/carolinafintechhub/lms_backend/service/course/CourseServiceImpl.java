@@ -3,11 +3,14 @@ package org.carolinafintechhub.lms_backend.service.course;
 import org.carolinafintechhub.lms_backend.entity.CourseEntity;
 import org.carolinafintechhub.lms_backend.exception.ValidationException;
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
+import org.carolinafintechhub.lms_backend.model.CourseViewModel;
 import org.carolinafintechhub.lms_backend.repository.CourseRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -44,5 +47,18 @@ public class CourseServiceImpl implements CourseService {
         } else {
             throw new RuntimeException("Course not found.");
         }
+    }
+
+    @Override
+    public List<CourseViewModel> getAllCourses() {
+        List<CourseEntity> courseEntities = courseRepository.findAll();
+
+        return courseEntities
+                .stream().map(course -> new CourseViewModel(
+                        course.getTitle(),
+                        course.getDescription(),
+                        course.getPreviewImage()))
+                                .collect(Collectors.toList());
+
     }
 }

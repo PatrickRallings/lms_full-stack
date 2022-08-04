@@ -1,7 +1,7 @@
-import CreateRichTextForm from "./components/CreateRichTextForm";
-import CreateCourseForm from "./components/CreateCourseForm";
+import CreateRichTextForm from "../components/CreateRichTextForm";
+import CreateCourseForm from "../components/CreateCourseForm";
 
-const CreateCoursePage = () => {
+const CreateCourse = () => {
 
     return (
         <div className={"page-container"}>
@@ -17,4 +17,4 @@ const CreateCoursePage = () => {
     )
 }
 
-export default CreateCoursePage;
+export default CreateCourse;

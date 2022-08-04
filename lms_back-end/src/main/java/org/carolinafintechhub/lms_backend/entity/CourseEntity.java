@@ -20,6 +20,9 @@ public class CourseEntity {
     @Column(name = "description", nullable = true)
     private String description;
 
+    @Column(name = "previewImage", nullable = true)
+    private String previewImage;
+
     @Column(name= "date_created")
     private final Date dateCreated = new Date();
 
@@ -31,9 +34,10 @@ public class CourseEntity {
 
     public CourseEntity() {};
 
-    public CourseEntity(String title, String description) {
+    public CourseEntity(String title, String description, String previewImage) {
         this.title = title;
         this.description = description;
+        this.previewImage = previewImage;
     }
 
     public Long getId() {
@@ -72,13 +76,23 @@ public class CourseEntity {
         this.enrollmentEntities = enrollmentEntities;
     }
 
+    public String getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
+    }
+
     @Override
     public String toString() {
         return "CourseEntity{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", previewImage='" + previewImage + '\'' +
                 ", dateCreated=" + dateCreated +
+                ", enrollmentEntities=" + enrollmentEntities +
                 '}';
     }
 }

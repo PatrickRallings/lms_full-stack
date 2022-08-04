@@ -2,7 +2,8 @@ package org.carolinafintechhub.lms_backend.controller.course;
 
 import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
 import org.carolinafintechhub.lms_backend.service.course.CourseService;
-import org.carolinafintechhub.lms_backend.validation.course.CourseCreationValidation;
+
+import org.carolinafintechhub.lms_backend.validation.course.CourseValidation;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +19,13 @@ public class CourseCreationController {
     }
 
     @RequestMapping("/create")
-    public CourseCreationValidation createCourse(@RequestBody CourseCreationModel courseCreationModel) {
+    public CourseValidation createCourse(@RequestBody CourseCreationModel courseCreationModel) {
 
-        CourseCreationValidation courseCreationValidation = new CourseCreationValidation(courseCreationModel, courseService);
+        CourseValidation courseValidation = new CourseValidation(courseCreationModel, courseService);
 
-        if(courseCreationValidation.isValidated()) {
+        if(courseValidation.isValidated()) {
             courseService.createCourse(courseCreationModel);
         }
-        return courseCreationValidation;
+        return courseValidation;
     }
 }

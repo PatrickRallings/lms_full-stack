@@ -2,7 +2,7 @@ package org.carolinafintechhub.lms_backend.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CourseCreationModel {
+public class CourseViewModel {
 
     @JsonProperty("title")
     private String title;
@@ -15,6 +15,14 @@ public class CourseCreationModel {
 
     public String getTitle() {
         return title;
+    }
+
+    public CourseViewModel (){};
+
+    public CourseViewModel (String title, String description, String previewImage) {
+        this.title = title;
+        this.description = description;
+        this.previewImage = previewImage;
     }
 
     public void setTitle(String title) {
@@ -39,7 +47,7 @@ public class CourseCreationModel {
 
     @Override
     public String toString() {
-        return "CourseCreationModel{" +
+        return "CourseViewModel{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", previewImage='" + previewImage + '\'' +

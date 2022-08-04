@@ -1,6 +1,6 @@
-import RegisterUserForm from "./components/RegisterUserForm"
+import RegisterUserForm from "../components/RegisterUserForm"
 
-function RegisterUserPage() {
+function RegisterUser() {
     return (
         <div className={"page-container"}>
             <div className={"content-container"}>
@@ -15,4 +15,4 @@ function RegisterUserPage() {
     );
 }
 
-export default RegisterUserPage;
+export default RegisterUser;

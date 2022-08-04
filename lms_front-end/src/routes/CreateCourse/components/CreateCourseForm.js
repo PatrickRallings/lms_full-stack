@@ -12,16 +12,23 @@ import {
 } from "@mui/material";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import CreateCourseService from "../services/CreateCourseService";
+import ImageModal from "./ImageModal";
 
 function CreateCourseForm() {
 
     const [course, setCourse] = useState({
             title: "",
             description: "",
-            email: "",
-            password: ""
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b"
         }
     );
+
+    const [imageSelected, setImageSelected] = useState(false)
+
+    const imageSourceFromClick = (imageSource) => {
+        setCourse({...course, image: imageSource})
+        setImageSelected(true)
+    }
 
     const handleChange = (e) => {
         setCourse({...course, [e.target.name]: e.target.value})
@@ -78,6 +85,21 @@ function CreateCourseForm() {
                                 {...register('description')}
                                 onChange={(e) => handleChange(e)}
                             />
+                        </Grid>
+                        {imageSelected && (
+                            <Grid item xs={12} sm={12}>
+                                <img
+                                    border={"2px solid #fd7633"}
+                                    width={200}
+                                    src={`${course.image}?w=164&h=164&fit=crop&auto=format`}
+                                    srcSet={`${course.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={"Selected Image"}
+                                    loading="lazy"
+                                />
+                            </Grid>
+                        )}
+                        <Grid item xs={12} sm={12}>
+                            <ImageModal imageSourceFromClick={imageSourceFromClick}/>
                         </Grid>
                     </Grid>
                     <Box mt={3}>
