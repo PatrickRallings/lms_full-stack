@@ -1,4 +1,4 @@
-import { RichTextEditor} from '@mantine/rte';
+import {RichTextEditor} from '@mantine/rte';
 import {useState} from "react";
 import Button from "@mui/material/Button";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
@@ -18,7 +18,7 @@ const CreateRichTextForm = () => {
                     />
                 </div>
                 <div className={"flex-row-center"}>
-                    <Button variant={"outlined"} >Add</Button>
+                    <Button variant={"outlined"}>Add</Button>
                 </div>
             </div>
         </ThemeProvider>

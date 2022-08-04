@@ -97,7 +97,7 @@ const NavbarAuthorizedUser = () => {
                                     onClick={handleCloseNavMenu}
                                     sx={{my: 2, color: 'white', display: 'block'}}
                                 >
-                                    <Link className="main-nav-link"  to={page[1]}>{page[0]}</Link>
+                                    <Link className="main-nav-link" to={page[1]}>{page[0]}</Link>
                                 </Button>
                             ))}
                         </Box>

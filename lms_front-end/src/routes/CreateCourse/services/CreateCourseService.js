@@ -4,7 +4,7 @@ class CreateCourseService {
 
     createCourse(course) {
 
-        fetch(CREATE_COURSE_URL, {
+        return fetch(CREATE_COURSE_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -12,20 +12,6 @@ class CreateCourseService {
             body: JSON.stringify(course),
         })
             .then(response => response.json())
-            .then(data => {
-                if (data.validated !== true) {
-                    alert("Sorry, a course with this title already exists.")
-                }
-                else if (data.error != null) {
-                    console.log("Error: ", data)
-                    alert(data.error)
-                } else {
-                    console.log('Success:', data);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     }
 
 }

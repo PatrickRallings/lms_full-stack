@@ -1,5 +1,6 @@
 import CreateRichTextForm from "../components/CreateRichTextForm";
 import CreateCourseForm from "../components/CreateCourseForm";
+import {Outlet} from "react-router-dom"
 
 const CreateCourse = () => {
 
@@ -7,10 +8,10 @@ const CreateCourse = () => {
         <div className={"page-container"}>
             <div className={"content-container"}>
                 <div className={"container-heading"}>
-                        <span>Create New Course</span>
+                    <span>Create New Course</span>
                 </div>
                 <div className={"container-body"}>
-                    <CreateCourseForm />
+                    <CreateCourseForm/>
                 </div>
             </div>
         </div>

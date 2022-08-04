@@ -9,15 +9,17 @@ import ViewAllCourses from "./routes/ViewCourse/pages/view-all-courses";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <BrowserRouter>
-          <Routes >
-          <Route path="/" element={<App />}>
-              <Route path="create-course" element={<CreateCourse />}/>
-              <Route path="register-user" element={<RegisterUser />}/>
-              <Route path="view-all-courses" element={<ViewAllCourses />}/>
-          </Route>
-          </Routes>
-      </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App/>}>
+                    <Route path="create-course" element={<CreateCourse/>}>
+                        <Route path="view-all-courses" element={<ViewAllCourses/>}/>
+                    </Route>
+                    <Route path="register-user" element={<RegisterUser/>}/>
+                    <Route path="view-all-courses" element={<ViewAllCourses/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
 );

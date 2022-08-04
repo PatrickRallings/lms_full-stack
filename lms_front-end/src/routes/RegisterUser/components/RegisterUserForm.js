@@ -51,7 +51,7 @@ function RegisterUserForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: {errors}
     } = useForm({
         resolver: yupResolver(validationSchema)
     });
@@ -59,104 +59,104 @@ function RegisterUserForm() {
     return (
         <ThemeProvider theme={OrangeCFHTheme}>
             <Fragment>
-                    <div>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    id="firstName"
-                                    name="firstName"
-                                    value = {user.firstName}
-                                    label="First Name"
-                                    fullWidth
-                                    margin="dense"
-                                    {...register('firstName')}
-                                    onChange={(e) => handleChange(e)}
-                                    error={!!errors.firstName}
-                                />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.firstName?.message}
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    id="lastName"
-                                    name="lastName"
-                                    value = {user.lastName}
-                                    label="Last Name"
-                                    fullWidth
-                                    margin="dense"
-                                    {...register('lastName')}
-                                    onChange={(e) => handleChange(e)}
-                                    error={!!errors.lastName}
-                                />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.lastName?.message}
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={12}>
-                                <TextField
-                                    required
-                                    id="email"
-                                    name="email"
-                                    value = {user.email}
-                                    label="Email"
-                                    fullWidth
-                                    margin="dense"
-                                    {...register('email')}
-                                    onChange={(e) => handleChange(e)}
-                                    error={!!errors.email}
-                                />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.email?.message}
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    id="password"
-                                    name="password"
-                                    value = {user.password}
-                                    label="Password"
-                                    type="password"
-                                    fullWidth
-                                    margin="dense"
-                                    {...register('password')}
-                                    onChange={(e) => handleChange(e)}
-                                    error={!!errors.password}
-                                />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.password?.message}
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    label="Confirm Password"
-                                    type="password"
-                                    fullWidth
-                                    margin="dense"
-                                    {...register('confirmPassword')}
-                                    error={!!errors.confirmPassword}
-                                />
-                                <Typography variant="inherit" color="textSecondary">
-                                    {errors.confirmPassword?.message}
-                                </Typography>
-                            </Grid>
+                <div>
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="firstName"
+                                name="firstName"
+                                value={user.firstName}
+                                label="First Name"
+                                fullWidth
+                                margin="dense"
+                                {...register('firstName')}
+                                onChange={(e) => handleChange(e)}
+                                error={!!errors.firstName}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.firstName?.message}
+                            </Typography>
                         </Grid>
-                        <Box mt={3}>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={handleSubmit(saveUser)}
-                            >
-                                Register
-                            </Button>
-                        </Box>
-                    </div>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="lastName"
+                                name="lastName"
+                                value={user.lastName}
+                                label="Last Name"
+                                fullWidth
+                                margin="dense"
+                                {...register('lastName')}
+                                onChange={(e) => handleChange(e)}
+                                error={!!errors.lastName}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.lastName?.message}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <TextField
+                                required
+                                id="email"
+                                name="email"
+                                value={user.email}
+                                label="Email"
+                                fullWidth
+                                margin="dense"
+                                {...register('email')}
+                                onChange={(e) => handleChange(e)}
+                                error={!!errors.email}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.email?.message}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="password"
+                                name="password"
+                                value={user.password}
+                                label="Password"
+                                type="password"
+                                fullWidth
+                                margin="dense"
+                                {...register('password')}
+                                onChange={(e) => handleChange(e)}
+                                error={!!errors.password}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.password?.message}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                label="Confirm Password"
+                                type="password"
+                                fullWidth
+                                margin="dense"
+                                {...register('confirmPassword')}
+                                error={!!errors.confirmPassword}
+                            />
+                            <Typography variant="inherit" color="textSecondary">
+                                {errors.confirmPassword?.message}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Box mt={3}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={handleSubmit(saveUser)}
+                        >
+                            Register
+                        </Button>
+                    </Box>
+                </div>
             </Fragment>
         </ThemeProvider>
 

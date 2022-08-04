@@ -8,7 +8,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 export default function CourseImageList({imageSourceFromClick, modalClicked}) {
 
     return (
-        <ImageList sx={{ width: 750, height: 450 }} cols={3} rowHeight={164} gap={8} variant="quilted">
+        <ImageList sx={{width: 750, height: 450}} cols={3} rowHeight={164} gap={8} variant="quilted">
             {itemData.map((item) => (
                 <ImageListItem key={item.img}>
                     <img
@@ -26,11 +26,11 @@ export default function CourseImageList({imageSourceFromClick, modalClicked}) {
                         position="top"
                         actionIcon={
                             <IconButton
-                                sx={{ color: '#fd7633' }}
+                                sx={{color: '#fd7633'}}
                                 aria-label={`star ${item.title}`}
                                 onClick={() => imageSourceFromClick(item.img)}
                             >
-                                <AddPhotoAlternateIcon />
+                                <AddPhotoAlternateIcon/>
                             </IconButton>
                         }
                         actionPosition="left"
