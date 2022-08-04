@@ -14,7 +14,7 @@ import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import CreateCourseService from "../services/CreateCourseService";
 import ImageModal from "./ImageModal";
 
-function CreateCourseForm() {
+function CreateCourseForm({passCourse, courseExists}) {
 
     const [course, setCourse] = useState({
             title: "",
@@ -44,6 +44,8 @@ function CreateCourseForm() {
                     alert(data.error)
                 } else {
                     console.log('Success:', data);
+                    passCourse(course);
+                    courseExists();
                 }
             })
             .catch((error) => {

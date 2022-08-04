@@ -27,8 +27,7 @@ const ViewAllCourses = () => {
             {!loading && (
                 <div>
                     {courses.map((course) => (
-                            <CourseCard key={course.title} courseCardTitle={course.title}
-                                        courseCardDescription={course.description} coursePreviewImage={course.image}/>
+                            <CourseCard key={course.title} course={course}/>
                         )
                     )}
                 </div>
