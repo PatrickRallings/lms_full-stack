@@ -22,7 +22,7 @@ export default function ImageModal({imageSourceFromClick}) {
 
     return (
         <div>
-                <Button onClick={handleOpen}>Select Preview Image</Button>
+                <Button variant={"outlined"} onClick={handleOpen}>Select Preview Image</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -30,7 +30,7 @@ export default function ImageModal({imageSourceFromClick}) {
                     aria-describedby="modal-modal-description"
                 >
                     <Box sx={style}>
-                        <CourseImageList imageSourceFromClick={imageSourceFromClick} />
+                        <CourseImageList modalClicked={handleClose} imageSourceFromClick={imageSourceFromClick} />
                     </Box>
                 </Modal>
         </div>

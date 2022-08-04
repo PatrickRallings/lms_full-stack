@@ -23,8 +23,11 @@ function CreateCourseForm() {
         }
     );
 
+    const [imageSelected, setImageSelected] = useState(false)
+
     const imageSourceFromClick = (imageSource) => {
         setCourse({...course, image: imageSource})
+        setImageSelected(true)
     }
 
     const handleChange = (e) => {
@@ -83,6 +86,18 @@ function CreateCourseForm() {
                                 onChange={(e) => handleChange(e)}
                             />
                         </Grid>
+                        {imageSelected && (
+                            <Grid item xs={12} sm={12}>
+                                <img
+                                    border={"2px solid #fd7633"}
+                                    width={200}
+                                    src={`${course.image}?w=164&h=164&fit=crop&auto=format`}
+                                    srcSet={`${course.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={"Selected Image"}
+                                    loading="lazy"
+                                />
+                            </Grid>
+                        )}
                         <Grid item xs={12} sm={12}>
                             <ImageModal imageSourceFromClick={imageSourceFromClick}/>
                         </Grid>

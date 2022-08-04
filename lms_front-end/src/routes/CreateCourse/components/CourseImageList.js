@@ -5,7 +5,7 @@ import {ImageListItemBar} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
-export default function CourseImageList({imageSourceFromClick}) {
+export default function CourseImageList({imageSourceFromClick, modalClicked}) {
 
     return (
         <ImageList sx={{ width: 750, height: 450 }} cols={3} rowHeight={164} gap={8} variant="quilted">
@@ -34,6 +34,7 @@ export default function CourseImageList({imageSourceFromClick}) {
                             </IconButton>
                         }
                         actionPosition="left"
+                        onClick={modalClicked}
                     />
                 </ImageListItem>
             ))}
