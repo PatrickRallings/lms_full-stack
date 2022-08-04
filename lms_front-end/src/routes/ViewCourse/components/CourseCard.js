@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, ThemeProvider} from '@mui/material';
 
+import CFHLogo from "../../../style/images/CFHLogo.svg"
+
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 
 const CourseCard = ({courseCardTitle, courseCardDescription}) => {
@@ -12,11 +14,12 @@ const CourseCard = ({courseCardTitle, courseCardDescription}) => {
         <ThemeProvider theme={OrangeCFHTheme}>
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
-                {/*<CardMedia*/}
-                {/*    component="img"*/}
-                {/*    height="140"*/}
-                {/*    image={courseCardImage}*/}
-                {/*/>*/}
+                <CardMedia
+                    component="img"
+                    height="140"
+                    width="345"
+                    image={CFHLogo}
+                />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {courseCardTitle}

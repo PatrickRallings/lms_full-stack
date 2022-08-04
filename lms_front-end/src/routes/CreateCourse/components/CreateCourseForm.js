@@ -12,16 +12,20 @@ import {
 } from "@mui/material";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import CreateCourseService from "../services/CreateCourseService";
+import ImageModal from "./ImageModal";
 
 function CreateCourseForm() {
 
     const [course, setCourse] = useState({
             title: "",
             description: "",
-            email: "",
-            password: ""
+            image: ""
         }
     );
+
+    const imageSourceFromClick = (imageSource) => {
+        setCourse({...course, image: imageSource})
+    }
 
     const handleChange = (e) => {
         setCourse({...course, [e.target.name]: e.target.value})
@@ -78,6 +82,9 @@ function CreateCourseForm() {
                                 {...register('description')}
                                 onChange={(e) => handleChange(e)}
                             />
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <ImageModal imageSourceFromClick={imageSourceFromClick}/>
                         </Grid>
                     </Grid>
                     <Box mt={3}>

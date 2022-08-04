@@ -10,15 +10,7 @@ const ViewAllCourses = () => {
 
     useEffect( () => {
         setLoading(true)
-        fetch("http://localhost:8080/api/v1/courses/view-all", {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json()
-            )
+        ViewAllCoursesService.getCourses()
             .then(data => {
                 setCourses(data)
                 setLoading(false)
@@ -34,7 +26,7 @@ const ViewAllCourses = () => {
             {!loading && (
                 <div>
                     {courses.map((course) => (
-                        <span key={course.title}>{course.title}</span>
+                        <CourseCard key={course.title} courseCardTitle={course.title} courseCardDescription={course.description}/>
                         )
 
                     )}
