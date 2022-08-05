@@ -3,6 +3,7 @@ import {useState} from "react";
 import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import CourseContentForm from "../components/CourseContentForm";
 
 const CreateCourse = () => {
 
@@ -46,15 +47,19 @@ const CreateCourse = () => {
                     {!courseCreationSuccess ? (
                         <span>Create New Course</span>
                     ) : (
-                        <span>Add Course Content</span>
+                        <span>Add Content to "{course.title}"</span>
                     )}
                 </div>
                 <div className={"container-body"}>
+                    {!courseCreationSuccess ? (
                     <CreateCourseForm
                         passCourse={(course) => setCourse(course)}
                         courseCreationSuccess={courseCreated}
                         courseAlreadyExists={courseAlreadyExists}
                     />
+                    ) : (
+                        <CourseContentForm course={course}/>
+                        )}
                 </div>
             </div>
             <Snackbar open={successAlert} autoHideDuration={5000} onClose={handleClose}>
