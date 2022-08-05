@@ -13,31 +13,37 @@ const CreateCourse = () => {
         }
     );
 
-    const [courseExists, setCourseExists] = useState(false);
+    const [courseCreationSuccess, setCourseCreationSuccess] = useState(false);
 
     const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
 
     const [successAlert, setSuccessAlert] = React.useState(false);
+    const [courseExistsAlert, setCourseExistsAlert] = React.useState(false);
 
     const courseCreated = () => {
-        setCourseExists(true)
+        setCourseCreationSuccess(true)
         setSuccessAlert(true);
     };
+
+    const courseAlreadyExists = () => {
+        setCourseExistsAlert(true);
+    }
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
         setSuccessAlert(false);
+        setCourseExistsAlert(false);
     };
 
     return (
         <div className={"page-container"}>
             <div className={"content-container"}>
                 <div className={"container-heading"}>
-                    {!courseExists ? (
+                    {!courseCreationSuccess ? (
                         <span>Create New Course</span>
                     ) : (
                         <span>Add Course Content</span>
@@ -46,13 +52,19 @@ const CreateCourse = () => {
                 <div className={"container-body"}>
                     <CreateCourseForm
                         passCourse={(course) => setCourse(course)}
-                        courseExists={courseCreated}
+                        courseCreationSuccess={courseCreated}
+                        courseAlreadyExists={courseAlreadyExists}
                     />
                 </div>
             </div>
-            <Snackbar open={successAlert} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={successAlert} autoHideDuration={5000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     The course "{course.title}" has been created.
+                </Alert>
+            </Snackbar>
+            <Snackbar open={courseExistsAlert} autoHideDuration={5000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                    Sorry, a course with that title already exists.
                 </Alert>
             </Snackbar>
         </div>

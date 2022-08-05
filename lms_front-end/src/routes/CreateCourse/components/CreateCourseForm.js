@@ -14,7 +14,7 @@ import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import CreateCourseService from "../services/CreateCourseService";
 import ImageModal from "./ImageModal";
 
-function CreateCourseForm({passCourse, courseExists}) {
+function CreateCourseForm({passCourse, courseCreationSuccess, courseAlreadyExists}) {
 
     const [course, setCourse] = useState({
             title: "",
@@ -37,15 +37,15 @@ function CreateCourseForm({passCourse, courseExists}) {
     const createCourse = () => {
         CreateCourseService.createCourse(course)
             .then(data => {
-                if (data.validated !== true) {
-                    alert("Sorry, a course with this title already exists.")
+                if (data.validated === false) {
+                    courseAlreadyExists();
                 } else if (data.error != null) {
                     console.log("Error: ", data)
                     alert(data.error)
                 } else {
                     console.log('Success:', data);
                     passCourse(course);
-                    courseExists();
+                    courseCreationSuccess();
                 }
             })
             .catch((error) => {
