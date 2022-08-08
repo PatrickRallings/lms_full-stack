@@ -12,6 +12,8 @@ import {ThemeProvider} from "@mui/material";
 import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
 
 const pages = [['Home', '/'],  ['Login', '/login-user'], ['Register', '/register-user'],];
 
@@ -89,6 +91,13 @@ const NavbarUnauthorizedUser = () => {
                                     <Link className="main-nav-link" to={page[1]}>{page[0]}</Link>
                                 </Button>
                             ))}
+                        </Box>
+                        <Box sx={{flexGrow: 0}}>
+                            <Tooltip title="Login to continue">
+                                <IconButton sx={{p: 0}}>
+                                    <Avatar alt="Remy Sharp" src="https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"/>
+                                </IconButton>
+                            </Tooltip>
                         </Box>
                     </Toolbar>
                 </Container>
