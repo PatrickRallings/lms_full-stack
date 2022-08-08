@@ -25,11 +25,11 @@ const LoginUser = ({passUser}) => {
 
     return (
         <div className={"page-container"}>
-            <div className={"content-container"}>
+            <div className={"login-container"}>
                 <div className={"container-heading"}>
                     <span>Login to CFH Account</span>
                 </div>
-                <div className={"container-body side-padding-large"}>
+                <div className={"login-form-body"}>
                     <LoginUserForm
                         loginUnsuccessful={loginUnsuccessful}
                         passUser={passUser}

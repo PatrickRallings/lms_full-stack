@@ -70,7 +70,7 @@ const LoginUserForm = ({loginUnsuccessful}) => {
             <Fragment>
                 <div>
                     <Grid container spacing={1} justifyContent={"center"}>
-                        <Grid item xs={8} sm={8}>
+                        <Grid item xs={12} sm={12}>
                             <TextField
                                 required
                                 id="email"
@@ -87,7 +87,7 @@ const LoginUserForm = ({loginUnsuccessful}) => {
                                 {errors.email?.message}
                             </Typography>
                         </Grid>
-                        <Grid item xs={8} sm={8} >
+                        <Grid item xs={12} sm={12} >
                             <TextField
                                 required
                                 id="password"

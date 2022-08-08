@@ -23,15 +23,20 @@ const ViewAllCourses = () => {
     )
 
     return (
-        <div>
-            {!loading && (
-                <div>
-                    {courses.map((course) => (
-                            <CourseCard key={course.title} course={course}/>
-                        )
-                    )}
+        <div className={"page-container"}>
+            <div className={"view-all-courses-container"}>
+                <div className={"container-heading"}>
+                    <span>All Enrolled Courses</span>
                 </div>
-            )}
+                    {!loading && (
+                        <div className={"view-all-courses-body"}>
+                            {courses.map((course) => (
+                                    <CourseCard key={course.title} course={course}/>
+                                )
+                            )}
+                        </div>
+                    )}
+            </div>
         </div>
     )
 }
