@@ -33,7 +33,7 @@ function CourseContentForm({courseTitle}) {
         SaveContentService.saveCourse(course)
             .then(data => {
                 if (data.validated === false) {
-                    // courseAlreadyExists();
+
                 } else if (data.error != null) {
                     console.log("Error: ", data)
                     alert(data.error)

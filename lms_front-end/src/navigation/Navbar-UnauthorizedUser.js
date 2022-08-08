@@ -6,36 +6,26 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
 import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
 
-const pages = [['Dashboard', '/'], ['Create Course', '/create-course'], ['Register', '/register-user'], ['Login', '/login-user'], ['Courses', '/view-all-courses']];
-const userMenu = [['Logout', '/']];
+const pages = [['Home', '/'],  ['Login', '/login-user'], ['Register', '/register-user'],];
 
-const NavbarAuthorizedUser = () => {
+const NavbarUnauthorizedUser = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
     return (
@@ -100,41 +90,10 @@ const NavbarAuthorizedUser = () => {
                                 </Button>
                             ))}
                         </Box>
-
-                        <Box sx={{flexGrow: 0}}>
-                            <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{mt: '45px'}}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                {userMenu.map((userMenu) => (
-                                    <MenuItem key={userMenu[0]} onClick={handleCloseUserMenu}>
-                                        <Link className="main-nav-link" to={userMenu[1]}>{userMenu[0]}</Link>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
-                        </Box>
                     </Toolbar>
                 </Container>
             </AppBar>
         </ThemeProvider>
     );
 };
-export default NavbarAuthorizedUser;
-
+export default NavbarUnauthorizedUser;

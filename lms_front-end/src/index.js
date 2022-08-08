@@ -6,8 +6,11 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CreateCourse from "./routes/CreateCourse/pages/create-course";
 import RegisterUser from "./routes/RegisterUser/pages/register-user";
 import ViewAllCourses from "./routes/ViewCourse/pages/view-all-courses";
+import LoginUser from "./routes/LoginUser/pages/user-login";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
 root.render(
     <React.StrictMode>
         <BrowserRouter>
@@ -16,6 +19,7 @@ root.render(
                     <Route path="create-course" element={<CreateCourse/>}/>
                     <Route path="register-user" element={<RegisterUser/>}/>
                     <Route path="view-all-courses" element={<ViewAllCourses/>}/>
+                    <Route path="login-user" element={<LoginUser/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

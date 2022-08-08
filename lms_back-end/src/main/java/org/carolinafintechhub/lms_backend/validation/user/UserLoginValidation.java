@@ -2,6 +2,7 @@ package org.carolinafintechhub.lms_backend.validation.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.carolinafintechhub.lms_backend.entity.UserEntity;
 import org.carolinafintechhub.lms_backend.model.UserLoginModel;
 import org.carolinafintechhub.lms_backend.service.user.UserService;
 import org.carolinafintechhub.lms_backend.validation.ValidationError;
@@ -27,6 +28,7 @@ public class UserLoginValidation {
         this.userService = userService;
         this.userLoginModel = userLoginModel;
         this.errorsPresent = new ArrayList<>();
+        this.userLoginModel.setRole("ADMIN");
         runValidation();
     }
 

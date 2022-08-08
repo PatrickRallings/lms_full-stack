@@ -20,8 +20,6 @@ public class UserLoginController {
     @RequestMapping("/login")
     public UserLoginValidation createUser(@RequestBody UserLoginModel userLoginModel) {
 
-        UserLoginValidation userLoginValidation = new UserLoginValidation(userLoginModel, userService);
-
-        return userLoginValidation;
+        return new UserLoginValidation(userLoginModel, userService);
     }
 }
