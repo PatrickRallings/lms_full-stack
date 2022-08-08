@@ -1,6 +1,6 @@
 import RegisterUserForm from "../components/RegisterUserForm"
 
-function RegisterUser() {
+const RegisterUser = () => {
     return (
         <div className={"page-container"}>
             <div className={"content-container"}>

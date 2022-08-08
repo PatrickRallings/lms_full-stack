@@ -10,9 +10,11 @@ public interface UserService extends UserDetailsService {
 
     UserCreationModel createUser(UserCreationModel userCreationModel);
 
-    boolean userExists(UserCreationModel userCreationModel);
+    boolean userExists(String email);
 
     UserEntity getUserById(Long id);
+
+    UserEntity getUserByEmail(String email);
 
     List<UserEntity> getAllUsers();
 }

@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserCreationModel createUser(UserCreationModel userCreationModel) {
 
-        if (!userExists(userCreationModel)) {
+        if (!userExists(userCreationModel.getEmail())) {
             UserEntity userEntity = new UserEntity();
             BeanUtils.copyProperties(userCreationModel, userEntity);
             userRepository.save(userEntity);
@@ -34,13 +34,23 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public boolean userExists(UserCreationModel userCreationModel) {
-        return userRepository.getUserByEmail(userCreationModel.getEmail()) != null;
+    public boolean userExists(String email) {
+        return userRepository.getUserByEmail(email) != null;
     }
 
     @Override
     public UserEntity getUserById(Long id) {
         Optional<UserEntity> optional = this.userRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new RuntimeException("User not found.");
+        }
+    }
+
+    @Override
+    public UserEntity getUserByEmail(String email) {
+        Optional<UserEntity> optional = Optional.ofNullable(this.userRepository.getUserByEmail(email));
         if (optional.isPresent()) {
             return optional.get();
         } else {
