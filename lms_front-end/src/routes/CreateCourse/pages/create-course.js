@@ -10,7 +10,8 @@ const CreateCourse = () => {
     const [course, setCourse] = useState({
             title: "",
             description: "",
-            image: ""
+            image: "",
+            content: ""
         }
     );
 
@@ -20,8 +21,8 @@ const CreateCourse = () => {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
 
-    const [successAlert, setSuccessAlert] = React.useState(false);
-    const [courseExistsAlert, setCourseExistsAlert] = React.useState(false);
+    const [successAlert, setSuccessAlert] = useState(false);
+    const [courseExistsAlert, setCourseExistsAlert] = useState(false);
 
     const courseCreated = () => {
         setCourseCreationSuccess(true)
@@ -50,17 +51,22 @@ const CreateCourse = () => {
                         <span>Add Content to "{course.title}"</span>
                     )}
                 </div>
-                <div className={"container-body"}>
+
                     {!courseCreationSuccess ? (
+                        <div className={"container-body"}>
                     <CreateCourseForm
                         passCourse={(course) => setCourse(course)}
                         courseCreationSuccess={courseCreated}
                         courseAlreadyExists={courseAlreadyExists}
                     />
+                        </div>
                     ) : (
-                        <CourseContentForm course={course}/>
+                        <div>
+                            <CourseContentForm courseTitle={course.title} />
+                        </div>
+
                         )}
-                </div>
+
             </div>
             <Snackbar open={successAlert} autoHideDuration={5000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>

@@ -10,7 +10,7 @@ export const OrangeCFHTheme = createTheme({
             contrastText: '#FFF',
         },
         secondary: {
-            main: '#6d3c4e',
+            main: '#3A1026',
         },
         info: {
             main: '#f32124',

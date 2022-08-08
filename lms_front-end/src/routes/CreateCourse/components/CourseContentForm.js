@@ -1,43 +1,73 @@
-import React, {Fragment} from 'react';
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
+import React, {Fragment, useEffect, useState} from 'react';
 import {
-    Box,
     Button,
     Grid,
     ThemeProvider,
 } from "@mui/material";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
+import Editor from "../editor/Editor";
+import SaveIcon from '@mui/icons-material/Save';
+import SaveContentService from "../services/SaveContentService";
 
-function CourseContentForm({course}) {
+function CourseContentForm({courseTitle}) {
 
-    const validationSchema = Yup.object().shape({
-        title: Yup.string().required('The title cannot be left blank.'),
-    });
+    const [courseContent, setCourseContent] = useState ("")
 
-    const {
-        register,
-        handleSubmit,
-        formState: {errors}
-    } = useForm({
-        resolver: yupResolver(validationSchema)
-    });
+    const [course, setCourse] = useState(
+        {
+            title: courseTitle,
+            content: courseContent
+        }
+    )
+
+    useEffect(() => {
+        setCourse(
+            {
+                title: courseTitle,
+                content: courseContent
+            }
+        )
+    }, [courseContent])
+
+    const saveCourseContent = () => {
+        SaveContentService.saveCourse(course)
+            .then(data => {
+                if (data.validated === false) {
+                    // courseAlreadyExists();
+                } else if (data.error != null) {
+                    console.log("Error: ", data)
+                    alert(data.error)
+                } else {
+                    console.log('Success:', data);
+                    // passCourse(course);
+                    // courseCreationSuccess();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
 
     return (
         <ThemeProvider theme={OrangeCFHTheme}>
             <Fragment>
                 <Grid container >
+                    <Grid item xs={12}>
+                        <Editor setValue={setCourseContent} />
+                    </Grid>
+                    {courseContent.content !== "" && (
+                        <div className="container-heading">
+                            <Button variant="outlined"
+                                    color="success"
+                                    endIcon={<SaveIcon />}
+                                    onClick={saveCourseContent}
+                            >
 
+                                Save Course Content
+                            </Button>
+                        </div>
+                    )}
                 </Grid>
-                <Box mt={3}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                    >
-                        Create Course
-                    </Button>
-                </Box>
             </Fragment>
         </ThemeProvider>
 
