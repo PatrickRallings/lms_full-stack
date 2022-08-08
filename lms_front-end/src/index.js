@@ -6,7 +6,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CreateCourse from "./routes/CreateCourse/pages/create-course";
 import RegisterUser from "./routes/RegisterUser/pages/register-user";
 import ViewAllCourses from "./routes/ViewCourse/pages/view-all-courses";
-import CourseContentForm from "./routes/CreateCourse/components/CourseContentForm";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

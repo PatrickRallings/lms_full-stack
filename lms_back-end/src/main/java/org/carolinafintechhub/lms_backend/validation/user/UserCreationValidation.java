@@ -58,7 +58,7 @@ public class UserCreationValidation {
     }
 
     private void emailAlreadyTaken() {
-        if (userService.userExists(userCreationModel)) {
+        if (userService.userExists(userCreationModel.getEmail())) {
             addError("email", "This email is already in use.");
         }
     }
