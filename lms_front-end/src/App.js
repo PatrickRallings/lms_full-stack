@@ -11,11 +11,8 @@ function App() {
     const history = useNavigate();
 
     useEffect(() => {
-        console.log("useEffect used - hehe")
         const sessionStorageUser = sessionStorage.getItem("loggedUser");
-        console.log(sessionStorage.getItem("loggedUser"))
         if (sessionStorageUser) {
-            console.log("settingUser")
             const foundUser = JSON.parse(sessionStorageUser);
             setUser(foundUser);
         }

@@ -3,11 +3,11 @@ import RegisterUserForm from "../components/RegisterUserForm"
 const RegisterUser = () => {
     return (
         <div className={"page-container"}>
-            <div className={"content-container"}>
+            <div className={"register-container"}>
                 <div className={"container-heading"}>
                     <span>Create CFH Account</span>
                 </div>
-                <div className={"container-body"}>
+                <div className={"register-form-body"}>
                     <RegisterUserForm/>
                 </div>
             </div>

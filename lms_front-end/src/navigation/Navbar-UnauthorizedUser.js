@@ -12,20 +12,29 @@ import {ThemeProvider} from "@mui/material";
 import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
 
-const pages = [['Home', '/'],  ['Login', '/login-user'], ['Register', '/register-user'],];
+const pages = [['Home', '/']];
 
 const NavbarUnauthorizedUser = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
 
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
     };
 
     return (
@@ -89,6 +98,34 @@ const NavbarUnauthorizedUser = () => {
                                     <Link className="main-nav-link" to={page[1]}>{page[0]}</Link>
                                 </Button>
                             ))}
+                        </Box>
+                        <Box sx={{flexGrow: 0}}>
+                                <IconButton sx={{p: 0}} onClick={handleOpenUserMenu} >
+                                    <Avatar alt="Anonymous User Icon" src="https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"/>
+                                </IconButton>
+                            <Menu
+                                sx={{mt: '45px'}}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}
+                            >
+                                <MenuItem key={"login"} onClick={handleCloseUserMenu}>
+                                    <Link className="main-nav-link" to={"/login-user"}>Login</Link>
+                                </MenuItem>
+                                <MenuItem key={"register"} onClick={handleCloseUserMenu}>
+                                    <Link  className="main-nav-link" to={"/register-user"}>Register</Link>
+                                </MenuItem>
+                            </Menu>
                         </Box>
                     </Toolbar>
                 </Container>

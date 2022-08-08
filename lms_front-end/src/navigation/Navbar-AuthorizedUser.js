@@ -8,20 +8,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
 import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
-const pages = [['Dashboard', '/'], ['Create Course', '/create-course'], ['Register', '/register-user'], ['Login', '/login-user'], ['Courses', '/view-all-courses']];
-const userMenu = [['Logout', '/']];
+const pages = [['Dashboard', '/'], ['Create Course', '/create-course'], ['Courses', '/view-all-courses']];
 
 const NavbarAuthorizedUser = () => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const navigate = useNavigate();
+
+    const clearSessionUser = () => {
+        sessionStorage.clear();
+        navigate("/")
+        window.location.reload()
+    }
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -102,11 +108,9 @@ const NavbarAuthorizedUser = () => {
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>
-                            <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
                                 </IconButton>
-                            </Tooltip>
                             <Menu
                                 sx={{mt: '45px'}}
                                 id="menu-appbar"
@@ -123,11 +127,9 @@ const NavbarAuthorizedUser = () => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {userMenu.map((userMenu) => (
-                                    <MenuItem key={userMenu[0]} onClick={handleCloseUserMenu}>
-                                        <Link className="main-nav-link" to={userMenu[1]}>{userMenu[0]}</Link>
+                                    <MenuItem key={"logout"} onClick={handleCloseUserMenu}>
+                                        <span onClick={clearSessionUser} className="main-nav-link">Logout</span>
                                     </MenuItem>
-                                ))}
                             </Menu>
                         </Box>
                     </Toolbar>
