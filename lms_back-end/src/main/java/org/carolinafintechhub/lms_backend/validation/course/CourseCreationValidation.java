@@ -48,7 +48,7 @@ public class CourseCreationValidation {
     }
 
     private void titleAlreadyTaken() {
-        if (courseService.courseExists(courseCreationModel)) {
+        if (courseService.courseExists(courseCreationModel.getTitle())) {
             addError("title", "This course title is already in use.");
         }
     }

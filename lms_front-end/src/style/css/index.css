@@ -31,19 +31,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: start;
-    padding-top: 10%;
+    padding-top: 5%;
 }
 
 .content-container {
-    width: 75%;
+    width: 95%;
     min-height: fit-content;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 0 8px #3A1026;
-    padding-bottom: 5%;
 }
+
 
 .container-heading {
     width: 100%;
@@ -62,6 +62,13 @@
     margin-top: 21px;
     align-self: center;
     text-align: center;
+    padding-bottom: 5%
+}
+
+.container-add-content {
+    width: 95%;
+    height: 100%;
+    margin-top: 10px;
 }
 
 /*Registration Page*/

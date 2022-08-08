@@ -26,11 +26,12 @@ public class CourseEntity {
     @Column(name= "date_created")
     private final Date dateCreated = new Date();
 
+    @Column(name = "content", length = 4000)
+    private String content;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
     private Set<EnrollmentEntity> enrollmentEntities = new HashSet<>();
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "courseEntity")
-//    private final Set<RichTextEntity> courseComponentEntities = new HashSet<>();
 
     public CourseEntity() {};
 
@@ -38,6 +39,7 @@ public class CourseEntity {
         this.title = title;
         this.description = description;
         this.previewImage = previewImage;
+        this.content = "";
     }
 
     public Long getId() {
@@ -84,6 +86,14 @@ public class CourseEntity {
         this.previewImage = previewImage;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "CourseEntity{" +
@@ -92,6 +102,7 @@ public class CourseEntity {
                 ", description='" + description + '\'' +
                 ", previewImage='" + previewImage + '\'' +
                 ", dateCreated=" + dateCreated +
+                ", content='" + content + '\'' +
                 ", enrollmentEntities=" + enrollmentEntities +
                 '}';
     }

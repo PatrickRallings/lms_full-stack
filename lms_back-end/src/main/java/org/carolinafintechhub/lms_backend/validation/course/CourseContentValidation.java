@@ -2,14 +2,14 @@ package org.carolinafintechhub.lms_backend.validation.course;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.carolinafintechhub.lms_backend.model.CourseCreationModel;
+import org.carolinafintechhub.lms_backend.model.CourseContentCreationModel;
 import org.carolinafintechhub.lms_backend.service.course.CourseService;
 import org.carolinafintechhub.lms_backend.validation.ValidationError;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseValidation {
+public class CourseContentValidation {
 
     @JsonProperty("validated")
     boolean validated;
@@ -18,21 +18,21 @@ public class CourseValidation {
     List<ValidationError> errorsPresent;
 
     @JsonProperty("course")
-    CourseCreationModel courseCreationModel;
+    CourseContentCreationModel courseContentCreationModel;
 
     @JsonIgnore
     CourseService courseService;
 
-    public CourseValidation(CourseCreationModel courseCreationModel, CourseService courseService) {
-        this.courseCreationModel = courseCreationModel;
+    public CourseContentValidation(CourseContentCreationModel courseContentCreationModel, CourseService courseService) {
+        this.courseContentCreationModel = courseContentCreationModel;
         this.courseService = courseService;
         this.errorsPresent = new ArrayList<>();
         runValidation();
     }
 
     private void runValidation () {
-        isNotEmptyCheck("title", courseCreationModel.getTitle());
-        titleAlreadyTaken();
+        isNotEmptyCheck("title", courseContentCreationModel.getTitle());
+        courseExists();
         validate();
     }
 
@@ -47,9 +47,9 @@ public class CourseValidation {
         }
     }
 
-    private void titleAlreadyTaken() {
-        if (courseService.courseExists(courseCreationModel.getTitle())) {
-            addError("title", "This course title is already in use.");
+    private void courseExists() {
+        if (!courseService.courseExists(courseContentCreationModel.getTitle())) {
+            addError("title", "This course does not exist.");
         }
     }
 
@@ -69,16 +69,16 @@ public class CourseValidation {
         return errorsPresent;
     }
 
-    public void setErrorsPresentList(List<ValidationError> errorsPresent) {
+    public void setErrorsPresent(List<ValidationError> errorsPresent) {
         this.errorsPresent = errorsPresent;
     }
 
-    public CourseCreationModel getCourseCreationModel() {
-        return courseCreationModel;
+    public CourseContentCreationModel getCourseContentCreationModel() {
+        return courseContentCreationModel;
     }
 
-    public void setCourseCreationModel(CourseCreationModel courseCreationModel) {
-        this.courseCreationModel = courseCreationModel;
+    public void setCourseContentCreationModel(CourseContentCreationModel courseContentCreationModel) {
+        this.courseContentCreationModel = courseContentCreationModel;
     }
 
     public CourseService getCourseService() {
@@ -91,10 +91,10 @@ public class CourseValidation {
 
     @Override
     public String toString() {
-        return "courseCreationValidation{" +
+        return "CourseContentValidation{" +
                 "validated=" + validated +
-                ", errorsPresentList=" + errorsPresent +
-                ", courseCreationModel=" + courseCreationModel +
+                ", errorsPresent=" + errorsPresent +
+                ", courseContentCreationModel=" + courseContentCreationModel +
                 ", courseService=" + courseService +
                 '}';
     }
