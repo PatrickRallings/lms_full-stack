@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles'
+import {createTheme} from '@mui/material/styles'
 
 export const OrangeCFHTheme = createTheme({
     palette: {
@@ -10,7 +10,7 @@ export const OrangeCFHTheme = createTheme({
             contrastText: '#FFF',
         },
         secondary: {
-            main: '#6d3c4e',
+            main: '#3A1026',
         },
         info: {
             main: '#f32124',

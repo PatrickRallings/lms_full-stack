@@ -19,20 +19,19 @@ export default function ImageModal({imageSourceFromClick}) {
     const handleClose = () => setOpen(false);
 
 
-
     return (
         <div>
-                <Button variant={"outlined"} onClick={handleOpen}>Select Preview Image</Button>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <Box sx={style}>
-                        <CourseImageList modalClicked={handleClose} imageSourceFromClick={imageSourceFromClick} />
-                    </Box>
-                </Modal>
+            <Button variant={"outlined"} onClick={handleOpen}>Select Preview Image</Button>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <CourseImageList modalClicked={handleClose} imageSourceFromClick={imageSourceFromClick}/>
+                </Box>
+            </Modal>
         </div>
     );
 }

@@ -8,7 +8,7 @@ function RegisterUser() {
                     <span>Create CFH Account</span>
                 </div>
                 <div className={"container-body"}>
-                    <RegisterUserForm />
+                    <RegisterUserForm/>
                 </div>
             </div>
         </div>

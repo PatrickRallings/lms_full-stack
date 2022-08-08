@@ -1,19 +1,19 @@
-const CREATE_COURSE_URL = "http://localhost:8080/api/v1/course/create";
+const CREATE_COURSE_URL = "http://localhost:8080/api/v1/course/save-content";
 
-class CreateCourseService {
+class SaveCourseService {
 
-    createCourse(course) {
+    saveCourse(courseContent) {
 
         return fetch(CREATE_COURSE_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(course),
+            body: JSON.stringify(courseContent),
         })
             .then(response => response.json())
     }
 
 }
 
-export default new CreateCourseService();
+export default new SaveCourseService();

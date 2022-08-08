@@ -8,18 +8,18 @@ const ViewAllCourses = () => {
     const [loading, setLoading] = useState(true)
     const [courses, setCourses] = useState([])
 
-    useEffect( () => {
-        setLoading(true)
-        ViewAllCoursesService.getCourses()
-            .then(data => {
-                setCourses(data)
-                console.log(data)
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        },[]
+    useEffect(() => {
+            setLoading(true)
+            ViewAllCoursesService.getCourses()
+                .then(data => {
+                    setCourses(data)
+                    console.log(data)
+                    setLoading(false)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }, []
     )
 
     return (
@@ -27,9 +27,8 @@ const ViewAllCourses = () => {
             {!loading && (
                 <div>
                     {courses.map((course) => (
-                        <CourseCard key={course.title} courseCardTitle={course.title} courseCardDescription={course.description} coursePreviewImage={course.image}/>
+                            <CourseCard key={course.title} course={course}/>
                         )
-
                     )}
                 </div>
             )}

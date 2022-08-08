@@ -14,7 +14,7 @@ import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import CreateCourseService from "../services/CreateCourseService";
 import ImageModal from "./ImageModal";
 
-function CreateCourseForm() {
+function CreateCourseForm({passCourse, courseCreationSuccess, courseAlreadyExists}) {
 
     const [course, setCourse] = useState({
             title: "",
@@ -35,8 +35,22 @@ function CreateCourseForm() {
     }
 
     const createCourse = () => {
-        console.log("Dev - saveUser function initiated")
         CreateCourseService.createCourse(course)
+            .then(data => {
+                if (data.validated === false) {
+                    courseAlreadyExists();
+                } else if (data.error != null) {
+                    console.log("Error: ", data)
+                    alert(data.error)
+                } else {
+                    console.log('Success:', data);
+                    passCourse(course);
+                    courseCreationSuccess();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
     const validationSchema = Yup.object().shape({
@@ -46,7 +60,7 @@ function CreateCourseForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: {errors}
     } = useForm({
         resolver: yupResolver(validationSchema)
     });
@@ -54,63 +68,63 @@ function CreateCourseForm() {
     return (
         <ThemeProvider theme={OrangeCFHTheme}>
             <Fragment>
-                    <Grid container spacing={1}>
-                        <Grid item xs={12} sm={12}>
-                            <TextField
-                                required
-                                id="title"
-                                name="title"
-                                value = {course.title}
-                                label="Course Title"
-                                fullWidth
-                                margin="dense"
-                                {...register('title')}
-                                onChange={(e) => handleChange(e)}
-                                error={!!errors.title}
-                            />
-                            <Typography variant="inherit" color="textSecondary">
-                                {errors.title?.message}
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={12}>
-                            <TextField
-                                id="description"
-                                name="description"
-                                value = {course.description}
-                                label="Course Description"
-                                fullWidth
-                                multiline
-                                rows={4}
-                                margin="dense"
-                                {...register('description')}
-                                onChange={(e) => handleChange(e)}
-                            />
-                        </Grid>
-                        {imageSelected && (
-                            <Grid item xs={12} sm={12}>
-                                <img
-                                    border={"2px solid #fd7633"}
-                                    width={200}
-                                    src={`${course.image}?w=164&h=164&fit=crop&auto=format`}
-                                    srcSet={`${course.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={"Selected Image"}
-                                    loading="lazy"
-                                />
-                            </Grid>
-                        )}
-                        <Grid item xs={12} sm={12}>
-                            <ImageModal imageSourceFromClick={imageSourceFromClick}/>
-                        </Grid>
+                <Grid container spacing={1}>
+                    <Grid item xs={12} sm={12}>
+                        <TextField
+                            required
+                            id="title"
+                            name="title"
+                            value={course.title}
+                            label="Course Title"
+                            fullWidth
+                            margin="dense"
+                            {...register('title')}
+                            onChange={(e) => handleChange(e)}
+                            error={!!errors.title}
+                        />
+                        <Typography variant="inherit" color="textSecondary">
+                            {errors.title?.message}
+                        </Typography>
                     </Grid>
-                    <Box mt={3}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={handleSubmit(createCourse)}
-                        >
-                            Create Course
-                        </Button>
-                    </Box>
+                    <Grid item xs={12} sm={12}>
+                        <TextField
+                            id="description"
+                            name="description"
+                            value={course.description}
+                            label="Course Description"
+                            fullWidth
+                            multiline
+                            rows={4}
+                            margin="dense"
+                            {...register('description')}
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </Grid>
+                    {imageSelected && (
+                        <Grid item xs={12} sm={12}>
+                            <img
+                                border={"2px solid #fd7633"}
+                                width={200}
+                                src={`${course.image}?w=164&h=164&fit=crop&auto=format`}
+                                srcSet={`${course.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                alt={"Selected Image"}
+                                loading="lazy"
+                            />
+                        </Grid>
+                    )}
+                    <Grid item xs={12} sm={12}>
+                        <ImageModal imageSourceFromClick={imageSourceFromClick}/>
+                    </Grid>
+                </Grid>
+                <Box mt={3}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleSubmit(createCourse)}
+                    >
+                        Create Course
+                    </Button>
+                </Box>
             </Fragment>
         </ThemeProvider>
 
