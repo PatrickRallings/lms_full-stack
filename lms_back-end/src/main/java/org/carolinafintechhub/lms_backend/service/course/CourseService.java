@@ -15,6 +15,8 @@ public interface CourseService {
 
     CourseEntity getCourseById(Long id);
 
+    CourseEntity getCourseByTitle(String title);
+
     List<CoursePreviewModel> getAllCourses();
 
     CourseContentCreationModel saveCourseContent(CourseContentCreationModel courseContent);

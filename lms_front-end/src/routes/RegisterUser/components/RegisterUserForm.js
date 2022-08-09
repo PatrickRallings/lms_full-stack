@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 
-function RegisterUserForm() {
+function RegisterUserForm({userExistsWithThisEmail, successfulRegistration}) {
 
     const [user, setUser] = useState({
             firstName: "",
@@ -30,6 +30,20 @@ function RegisterUserForm() {
     const saveUser = () => {
         console.log("Dev - saveUser function initiated")
         CreateUserService.createUser(user)
+            .then(data => {
+                if (data.validated !== true) {
+                    userExistsWithThisEmail();
+                } else if (data.error != null) {
+                    console.log("Error: ", data)
+                    alert(data.error)
+                } else {
+                    console.log('Success:', data);
+                    successfulRegistration();
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
     const validationSchema = Yup.object().shape({

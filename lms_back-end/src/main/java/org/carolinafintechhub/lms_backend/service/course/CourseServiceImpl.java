@@ -51,6 +51,16 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public CourseEntity getCourseByTitle(String title) {
+        Optional<CourseEntity> optional = Optional.ofNullable(this.courseRepository.getCourseByTitle(title));
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new RuntimeException("Course not found.");
+        }
+    }
+
+    @Override
     public List<CoursePreviewModel> getAllCourses() {
         List<CourseEntity> courseEntities = courseRepository.findAll();
 

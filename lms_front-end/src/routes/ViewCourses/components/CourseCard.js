@@ -7,13 +7,17 @@ import {CardActionArea, ThemeProvider} from '@mui/material';
 
 import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 
-const CourseCard = ({course}) => {
+const CourseCard = ({course, onCardClick}) => {
 
     return (
         <div className={"course-card"}>
             <ThemeProvider theme={OrangeCFHTheme}>
-                <Card sx={{maxWidth: 345}}>
-                    <CardActionArea>
+                <Card sx={{maxWidth: 345}}
+
+                >
+                    <CardActionArea
+                        onClick={onCardClick}
+                    >
                         <CardMedia
                             component="img"
                             height="175"

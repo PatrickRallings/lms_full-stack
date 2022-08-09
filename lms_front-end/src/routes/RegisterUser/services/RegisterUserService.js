@@ -4,7 +4,7 @@ class RegisterUserService {
 
     createUser(user) {
 
-        fetch(CREATE_USER_URL, {
+        return fetch(CREATE_USER_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -12,19 +12,7 @@ class RegisterUserService {
             body: JSON.stringify(user),
         })
             .then(response => response.json())
-            .then(data => {
-                if (data.validated !== true) {
-                    alert("Sorry, we were unable to register your account. If an account with this email already exists, please log in.")
-                } else if (data.error != null) {
-                    console.log("Error: ", data)
-                    alert(data.error)
-                } else {
-                    console.log('Success:', data);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+
     }
 
 }

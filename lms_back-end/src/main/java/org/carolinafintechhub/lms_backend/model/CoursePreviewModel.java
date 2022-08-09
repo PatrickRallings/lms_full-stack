@@ -48,12 +48,21 @@ public class CoursePreviewModel {
         this.previewImage = previewImage;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
-        return "CourseViewModel{" +
+        return "CoursePreviewModel{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", previewImage='" + previewImage + '\'' +
+                ", content='" + content + '\'' +
                 '}';
     }
 }
