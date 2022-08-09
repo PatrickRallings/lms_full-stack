@@ -33,6 +33,7 @@ function RegisterUserForm({userExistsWithThisEmail, successfulRegistration}) {
             .then(data => {
                 if (data.validated !== true) {
                     userExistsWithThisEmail();
+                    console.log("Error: ", data)
                 } else if (data.error != null) {
                     console.log("Error: ", data)
                     alert(data.error)

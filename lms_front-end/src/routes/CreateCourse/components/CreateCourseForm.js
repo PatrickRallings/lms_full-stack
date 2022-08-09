@@ -39,6 +39,7 @@ function CreateCourseForm({passCourse, courseCreationSuccess, courseAlreadyExist
             .then(data => {
                 if (data.validated === false) {
                     courseAlreadyExists();
+                    console.log("Error: ", data)
                 } else if (data.error != null) {
                     console.log("Error: ", data)
                     alert(data.error)

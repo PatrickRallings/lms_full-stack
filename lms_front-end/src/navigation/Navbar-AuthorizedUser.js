@@ -38,6 +38,7 @@ const NavbarAuthorizedUser = () => {
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
+        window.location.reload();
     };
 
     const handleCloseUserMenu = () => {
