@@ -10,11 +10,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
-import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link, useNavigate} from "react-router-dom";
+import {OrangeCFHTheme} from "../style/themes/OrangeCFHTheme";
 
-const pages = [['Dashboard', '/'], ['Create Course', '/create-course'], ['Courses', '/view-all-courses']];
+const pages = [['Dashboard', '/'], ['Courses', '/view-all-courses']];
 
 const NavbarAuthorizedUser = () => {
 
@@ -45,7 +45,7 @@ const NavbarAuthorizedUser = () => {
     };
 
     return (
-        <ThemeProvider theme={PinkCFHTheme}>
+        <ThemeProvider theme={OrangeCFHTheme}>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -107,7 +107,7 @@ const NavbarAuthorizedUser = () => {
                             ))}
                         </Box>
 
-                        <Box sx={{flexGrow: 0}}>
+                        <Box sx={{flexGrow: 0, ml: 5}}>
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
                                 </IconButton>

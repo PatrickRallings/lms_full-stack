@@ -9,10 +9,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {ThemeProvider} from "@mui/material";
-import {PinkCFHTheme} from "../style/themes/PinkCFHTheme";
 import CFHLogo from "../style/images/CFHLogo.svg"
 import {Link} from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
+import {OrangeCFHTheme} from "../style/themes/OrangeCFHTheme";
 
 const pages = [['Home', '/']];
 
@@ -38,7 +38,7 @@ const NavbarUnauthorizedUser = () => {
     };
 
     return (
-        <ThemeProvider theme={PinkCFHTheme}>
+        <ThemeProvider theme={OrangeCFHTheme}>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -99,7 +99,7 @@ const NavbarUnauthorizedUser = () => {
                                 </Button>
                             ))}
                         </Box>
-                        <Box sx={{flexGrow: 0}}>
+                        <Box sx={{flexGrow: 0, ml: 5}}>
                                 <IconButton sx={{p: 0}} onClick={handleOpenUserMenu} >
                                     <Avatar alt="Anonymous User Icon" src="https://friconix.com/png/fi-cnluxx-anonymous-user-circle.png"/>
                                 </IconButton>

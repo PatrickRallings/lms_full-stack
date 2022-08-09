@@ -8,10 +8,13 @@ import {OrangeCFHTheme} from "../../../style/themes/OrangeCFHTheme";
 import Editor from "../editor/Editor";
 import SaveIcon from '@mui/icons-material/Save';
 import SaveContentService from "../services/SaveContentService";
+import { useNavigate } from "react-router-dom";
 
 function CourseContentForm({courseTitle}) {
 
     const [courseContent, setCourseContent] = useState ("")
+
+    const navigate = useNavigate();
 
     const [course, setCourse] = useState(
         {
@@ -39,8 +42,7 @@ function CourseContentForm({courseTitle}) {
                     alert(data.error)
                 } else {
                     console.log('Success:', data);
-                    // passCourse(course);
-                    // courseCreationSuccess();
+                    navigate("/view-all-courses")
                 }
             })
             .catch((error) => {

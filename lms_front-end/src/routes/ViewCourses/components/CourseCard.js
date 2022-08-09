@@ -13,7 +13,7 @@ const CourseCard = ({course, onCardClick}) => {
         <div className={"course-card"}>
             <ThemeProvider theme={OrangeCFHTheme}>
                 <Card sx={{maxWidth: 345}}
-
+                variant={"basic"}
                 >
                     <CardActionArea
                         onClick={onCardClick}

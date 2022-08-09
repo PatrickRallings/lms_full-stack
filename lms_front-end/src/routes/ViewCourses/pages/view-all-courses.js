@@ -2,6 +2,9 @@ import ViewAllCoursesService from "../services/ViewAllCoursesService";
 import {useEffect, useState} from "react";
 import CourseCard from "../components/CourseCard";
 import ViewCourseContentService from "../services/ViewCourseContentService";
+import {Tooltip} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const ViewAllCourses = () => {
 
@@ -31,8 +34,6 @@ const ViewAllCourses = () => {
         ViewCourseContentService.viewCourseContent(course)
             .then(data => {
                 setSelectedCourseContent(data.content)
-                // setCourses(data)
-                // console.log(data)
                 setLoading(false)
             })
             .catch((error) => {
@@ -45,8 +46,17 @@ const ViewAllCourses = () => {
             <div className={"view-all-courses-container"}>
                 {selectedCourse == null ? (
                     <div>
-                        <div className={"container-heading"}>
+                        <div className={"container-heading-courses"}>
                             <span>All Enrolled Courses</span>
+                        <Tooltip title={"Create new course"}>
+                            <IconButton
+                                sx={{ml: 5}}
+                                color="success"
+                                href={'/create-course'}
+                            >
+                                <AddCircleIcon/>
+                            </IconButton>
+                        </Tooltip>
                         </div>
                         {!loading && (
                             <div className={"view-all-courses-body"}>
